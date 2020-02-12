@@ -107,22 +107,6 @@ public class Productor extends Thread
      {
         while(true)
         {   
-            //Pausa el proceso de producción:
-            synchronized(this)
-            {
-                while(pausar==true)
-                {
-                    try 
-                    {
-                        wait();
-                    } 
-                    catch (InterruptedException ex) 
-                    {
-                        Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }    
-            }               
-            
             //Productor de Motor:
             if(tipo==0)
             {
@@ -202,18 +186,6 @@ public class Productor extends Thread
             }               
         }    
     } 
-    
-    //Método para pausar:
-    public void pausar() 
-    {
-        this.pausar=true;
-    }
-    
-    //Método para continuar:
-    synchronized void reanudar()
-    {
-        this.pausar=false;
-        notify();
-    }    
+       
 
 }

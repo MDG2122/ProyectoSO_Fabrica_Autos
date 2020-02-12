@@ -42,21 +42,6 @@ public class Ensamblador extends Thread
     {
         while (true)
         {
-            //Pausa el proceso de ensamblaje:
-            synchronized(this)
-            {
-                while(pausar==true)
-                {
-                    try 
-                    {
-                        wait();
-                    } 
-                    catch (InterruptedException ex) 
-                    {
-                        Logger.getLogger(Ensamblador.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }    
-            }  
 
             try 
             {
@@ -141,19 +126,6 @@ public class Ensamblador extends Thread
     }
     }  
         
-    
-    //Método para pausar:
-    public void pausar() 
-    {
-        this.pausar=true;
-    }
-    
-    //Método para continuar:
-    synchronized void reanudar()
-    {
-        this.pausar=false;
-        notify();
-    }
 
     
     

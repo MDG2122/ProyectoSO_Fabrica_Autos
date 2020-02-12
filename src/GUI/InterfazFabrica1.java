@@ -6,28 +6,24 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *Proyecto SO - Trimestre 1718-2
- *Hecho por César Salazar y Loredana de Miro 
- */
 public class InterfazFabrica1 extends javax.swing.JFrame 
 {
 
-    Fabrica fabrica_robots;
+    Fabrica fabrica_autos;
     boolean flag;
 
     public InterfazFabrica1() throws IOException
     {
         initComponents();
         this.setLocationRelativeTo(null);
-        fabrica_robots= new Fabrica (this.nroDiasDespacho, this.cantidadCabezas, this.cantidadCuerpos, this.cantidadExtremidades, this.cantidadProdCab, this.cantidadProdCuerpo, this.cantidadProdExtrem, this.cantidadEnsambladores, this.cantidadRobots, this.estadoGerente, this.estadoCrono, this.nroDias);
-        fabrica_robots.Inicializar_ArrayLists();
+        fabrica_autos= new Fabrica (this.nroDiasDespacho, this.cantidadMotores, this.cantidadParabrisas, this.cantidadRuedas, this.cantidadProdMot, this.cantidadProdPar, this.cantidadProdRu, this.cantidadEnsambladores, this.cantidadAutos, this.estadoGerente, this.estadoCrono, this.nroDias);
+        fabrica_autos.Inicializar_ArrayLists();
         flag=false;
     }
     public void activar_botones()
     {
         flag=true;
-        fabrica_robots.Producir_Ensamblar();
+        fabrica_autos.Producir_Ensamblar();
     }
 
     
@@ -41,52 +37,50 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        extremidades = new javax.swing.JLabel();
-        cuerpo = new javax.swing.JLabel();
-        cantRobotsProducidos = new javax.swing.JLabel();
+        ruedasAuto = new javax.swing.JLabel();
+        parabrisaAuto = new javax.swing.JLabel();
+        cantAutosProducidos = new javax.swing.JLabel();
         diasDespacho = new javax.swing.JLabel();
-        hombresMecanicos = new javax.swing.JLabel();
-        cabezaRobot = new javax.swing.JLabel();
+        ibmw = new javax.swing.JLabel();
+        motorAuto = new javax.swing.JLabel();
         estatusGerente = new javax.swing.JLabel();
         estatusCronometrador = new javax.swing.JLabel();
-        Pausar = new javax.swing.JButton();
-        Reanudar = new javax.swing.JButton();
-        cabezaDatos = new javax.swing.JTabbedPane();
+        motorDatos = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cantidadCabezas = new javax.swing.JLabel();
+        cantidadMotores = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        cantidadProdCab = new javax.swing.JLabel();
-        contratarProdCab = new javax.swing.JButton();
-        despedirProdCab = new javax.swing.JButton();
-        cuerpoDatos = new javax.swing.JTabbedPane();
+        cantidadProdMot = new javax.swing.JLabel();
+        contratarProdMot = new javax.swing.JButton();
+        despedirProdMot = new javax.swing.JButton();
+        parabrisaDatos = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        cantidadCuerpos = new javax.swing.JLabel();
+        cantidadParabrisas = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        cantidadProdCuerpo = new javax.swing.JLabel();
-        contratarProdCuerpos = new javax.swing.JButton();
-        despedirProdCuerpos = new javax.swing.JButton();
-        extremidadesDatos = new javax.swing.JTabbedPane();
+        cantidadProdPar = new javax.swing.JLabel();
+        contratarProPar = new javax.swing.JButton();
+        despedirProdPar = new javax.swing.JButton();
+        ruedasDatos = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        cantidadExtremidades = new javax.swing.JLabel();
+        cantidadRuedas = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        cantidadProdExtrem = new javax.swing.JLabel();
-        contratarProdExtrem = new javax.swing.JButton();
-        despedirProdExtrem = new javax.swing.JButton();
+        cantidadProdRu = new javax.swing.JLabel();
+        contratarProdRu = new javax.swing.JButton();
+        despedirProdRu = new javax.swing.JButton();
         ensambladores = new javax.swing.JLabel();
         contratarEnsamblador = new javax.swing.JButton();
         despedirEnsamblador = new javax.swing.JButton();
         cantidadEnsambladores = new javax.swing.JLabel();
         robotimg = new javax.swing.JLabel();
-        cantidadRobots = new javax.swing.JLabel();
+        cantidadAutos = new javax.swing.JLabel();
         nroDiasDespacho = new javax.swing.JLabel();
         estadoGerente = new javax.swing.JLabel();
         estadoCrono = new javax.swing.JLabel();
@@ -104,36 +98,36 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        extremidades.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        extremidades.setForeground(new java.awt.Color(255, 255, 255));
-        extremidades.setText("Extremidades");
-        jPanel1.add(extremidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 113, 105, -1));
+        ruedasAuto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ruedasAuto.setForeground(new java.awt.Color(255, 255, 255));
+        ruedasAuto.setText("Ruedas");
+        jPanel1.add(ruedasAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 105, -1));
 
-        cuerpo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cuerpo.setForeground(new java.awt.Color(255, 255, 255));
-        cuerpo.setText("Cuerpo");
-        jPanel1.add(cuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 106, -1, -1));
+        parabrisaAuto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        parabrisaAuto.setForeground(new java.awt.Color(255, 255, 255));
+        parabrisaAuto.setText("Parabrisas");
+        jPanel1.add(parabrisaAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
-        cantRobotsProducidos.setBackground(new java.awt.Color(255, 255, 204));
-        cantRobotsProducidos.setFont(new java.awt.Font("Impact", 0, 20)); // NOI18N
-        cantRobotsProducidos.setForeground(new java.awt.Color(255, 255, 255));
-        cantRobotsProducidos.setText("Nro. Robots Producidos");
-        jPanel1.add(cantRobotsProducidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 104, -1, -1));
+        cantAutosProducidos.setBackground(new java.awt.Color(255, 255, 204));
+        cantAutosProducidos.setFont(new java.awt.Font("Impact", 0, 20)); // NOI18N
+        cantAutosProducidos.setForeground(new java.awt.Color(255, 255, 255));
+        cantAutosProducidos.setText("Nro. Autos Producidos");
+        jPanel1.add(cantAutosProducidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 104, -1, -1));
 
         diasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         diasDespacho.setForeground(new java.awt.Color(255, 255, 255));
         diasDespacho.setText("Días que faltan para el despacho:");
         jPanel1.add(diasDespacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 390, 237, -1));
 
-        hombresMecanicos.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
-        hombresMecanicos.setForeground(new java.awt.Color(255, 255, 255));
-        hombresMecanicos.setText("HOMBRES MECÁNICOS C.A.");
-        jPanel1.add(hombresMecanicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 21, -1, 37));
+        ibmw.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
+        ibmw.setForeground(new java.awt.Color(255, 255, 255));
+        ibmw.setText("IBMW C.A.");
+        jPanel1.add(ibmw, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 21, -1, 37));
 
-        cabezaRobot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cabezaRobot.setForeground(new java.awt.Color(255, 255, 255));
-        cabezaRobot.setText("Cabeza");
-        jPanel1.add(cabezaRobot, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 104, 60, -1));
+        motorAuto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        motorAuto.setForeground(new java.awt.Color(255, 255, 255));
+        motorAuto.setText("Motor");
+        jPanel1.add(motorAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 60, -1));
 
         estatusGerente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estatusGerente.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,26 +139,10 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         estatusCronometrador.setText("Estatus Cronometrador:");
         jPanel1.add(estatusCronometrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 390, -1, -1));
 
-        Pausar.setText("Pausar");
-        Pausar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PausarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Pausar, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 35, 94, -1));
+        jLabel1.setText("Motores producidos:");
 
-        Reanudar.setText("Reanudar");
-        Reanudar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReanudarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Reanudar, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 35, 94, -1));
-
-        jLabel1.setText("Cantidad de cabezas producidas:");
-
-        cantidadCabezas.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        cantidadCabezas.setText("X");
+        cantidadMotores.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        cantidadMotores.setText("X");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/head.jpg"))); // NOI18N
 
@@ -179,10 +157,10 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(cantidadCabezas)
+                        .addComponent(cantidadMotores)
                         .addGap(26, 26, 26)
                         .addComponent(jLabel2)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,28 +173,28 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(jLabel2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(cantidadCabezas)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(cantidadMotores)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        cabezaDatos.addTab("Producción", jPanel2);
+        motorDatos.addTab("Producción", jPanel2);
 
-        jLabel3.setText("Cantidad de productores de cabezas:");
+        jLabel3.setText("Productores de motores:");
 
-        cantidadProdCab.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        cantidadProdCab.setText("X");
+        cantidadProdMot.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadProdMot.setText("X");
 
-        contratarProdCab.setText("contratar");
-        contratarProdCab.addActionListener(new java.awt.event.ActionListener() {
+        contratarProdMot.setText("contratar");
+        contratarProdMot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contratarProdCabActionPerformed(evt);
+                contratarProdMotActionPerformed(evt);
             }
         });
 
-        despedirProdCab.setText("despedir");
-        despedirProdCab.addActionListener(new java.awt.event.ActionListener() {
+        despedirProdMot.setText("despedir");
+        despedirProdMot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                despedirProdCabActionPerformed(evt);
+                despedirProdMotActionPerformed(evt);
             }
         });
 
@@ -226,16 +204,16 @@ public class InterfazFabrica1 extends javax.swing.JFrame
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(cantidadProdCab)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cantidadProdMot)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(contratarProdCab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(despedirProdCab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(contratarProdMot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(despedirProdMot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,22 +222,22 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addComponent(jLabel3)
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cantidadProdCab)
+                    .addComponent(cantidadProdMot)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(contratarProdCab)
+                        .addComponent(contratarProdMot)
                         .addGap(18, 18, 18)
-                        .addComponent(despedirProdCab)))
+                        .addComponent(despedirProdMot)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        cabezaDatos.addTab("Productor", jPanel3);
+        motorDatos.addTab("Productor", jPanel3);
 
-        jPanel1.add(cabezaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 139, 200, -1));
+        jPanel1.add(motorDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 139, 210, -1));
 
-        jLabel4.setText("Cantidad de cuerpos producidos:");
+        jLabel4.setText("Parabrisas producidos:");
 
-        cantidadCuerpos.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        cantidadCuerpos.setText("X");
+        cantidadParabrisas.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        cantidadParabrisas.setText("X");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/body.jpg"))); // NOI18N
 
@@ -268,14 +246,16 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(cantidadCuerpos)
-                        .addGap(24, 24, 24)
+                        .addGap(32, 32, 32)
+                        .addComponent(cantidadParabrisas)
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel6))
-                    .addComponent(jLabel4))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,32 +264,32 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addComponent(jLabel4)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel6))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(cantidadCuerpos)))
+                        .addComponent(cantidadParabrisas)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        cuerpoDatos.addTab("Producción", jPanel4);
+        parabrisaDatos.addTab("Producción", jPanel4);
 
-        jLabel7.setText("Cantidad de productores de cuerpos:");
+        jLabel7.setText("Productores de parabrisas:");
 
-        cantidadProdCuerpo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        cantidadProdCuerpo.setText("X");
+        cantidadProdPar.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadProdPar.setText("X");
 
-        contratarProdCuerpos.setText("contratar");
-        contratarProdCuerpos.addActionListener(new java.awt.event.ActionListener() {
+        contratarProPar.setText("contratar");
+        contratarProPar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contratarProdCuerposActionPerformed(evt);
+                contratarProdParActionPerformed(evt);
             }
         });
 
-        despedirProdCuerpos.setText("despedir");
-        despedirProdCuerpos.addActionListener(new java.awt.event.ActionListener() {
+        despedirProdPar.setText("despedir");
+        despedirProdPar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                despedirProdCuerposActionPerformed(evt);
+                despedirProdParActionPerformed(evt);
             }
         });
 
@@ -323,11 +303,11 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(cantidadProdCuerpo)
+                .addComponent(cantidadProdPar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contratarProdCuerpos, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(despedirProdCuerpos, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(contratarProPar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(despedirProdPar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(25, 25, 25))
         );
         jPanel5Layout.setVerticalGroup(
@@ -338,23 +318,23 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(cantidadProdCuerpo))
+                        .addComponent(cantidadProdPar))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(contratarProdCuerpos)
+                        .addComponent(contratarProPar)
                         .addGap(18, 18, 18)
-                        .addComponent(despedirProdCuerpos)))
+                        .addComponent(despedirProdPar)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        cuerpoDatos.addTab("Productor", jPanel5);
+        parabrisaDatos.addTab("Productor", jPanel5);
 
-        jPanel1.add(cuerpoDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 141, 200, 175));
+        jPanel1.add(parabrisaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 141, 210, 175));
 
-        jLabel8.setText("Cantidad de extremidades producidas:");
+        jLabel8.setText("Ruedas producidas:");
 
-        cantidadExtremidades.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        cantidadExtremidades.setText("X");
+        cantidadRuedas.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        cantidadRuedas.setText("X");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arms.jpg"))); // NOI18N
 
@@ -363,14 +343,16 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(cantidadExtremidades)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(cantidadRuedas)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,31 +362,31 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(cantidadExtremidades))
+                        .addComponent(cantidadRuedas))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        extremidadesDatos.addTab("Producción", jPanel6);
+        ruedasDatos.addTab("Producción", jPanel6);
 
-        jLabel9.setText("Cantidad de productores de Extremidades:");
+        jLabel9.setText("Productores de Ruedas:");
 
-        cantidadProdExtrem.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        cantidadProdExtrem.setText("X");
+        cantidadProdRu.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadProdRu.setText("X");
 
-        contratarProdExtrem.setText("contratar");
-        contratarProdExtrem.addActionListener(new java.awt.event.ActionListener() {
+        contratarProdRu.setText("contratar");
+        contratarProdRu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contratarProdExtremActionPerformed(evt);
+                contratarProdRuActionPerformed(evt);
             }
         });
 
-        despedirProdExtrem.setText("despedir");
-        despedirProdExtrem.addActionListener(new java.awt.event.ActionListener() {
+        despedirProdRu.setText("despedir");
+        despedirProdRu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                despedirProdExtremActionPerformed(evt);
+                despedirProdRuActionPerformed(evt);
             }
         });
 
@@ -418,11 +400,11 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(cantidadProdExtrem)
+                .addComponent(cantidadProdRu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contratarProdExtrem, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(despedirProdExtrem, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(contratarProdRu, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(despedirProdRu, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(49, 49, 49))
         );
         jPanel7Layout.setVerticalGroup(
@@ -433,18 +415,18 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(cantidadProdExtrem))
+                        .addComponent(cantidadProdRu))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(contratarProdExtrem)
+                        .addComponent(contratarProdRu)
                         .addGap(18, 18, 18)
-                        .addComponent(despedirProdExtrem)))
+                        .addComponent(despedirProdRu)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        extremidadesDatos.addTab("Productor", jPanel7);
+        ruedasDatos.addTab("Productor", jPanel7);
 
-        jPanel1.add(extremidadesDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 141, 219, 175));
+        jPanel1.add(ruedasDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 141, 210, 175));
 
         ensambladores.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ensambladores.setForeground(new java.awt.Color(255, 255, 255));
@@ -475,10 +457,10 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         robotimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/robot.jpg"))); // NOI18N
         jPanel1.add(robotimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 141, -1, -1));
 
-        cantidadRobots.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        cantidadRobots.setForeground(new java.awt.Color(255, 153, 51));
-        cantidadRobots.setText("X");
-        jPanel1.add(cantidadRobots, new org.netbeans.lib.awtextra.AbsoluteConstraints(814, 188, -1, -1));
+        cantidadAutos.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadAutos.setForeground(new java.awt.Color(255, 153, 51));
+        cantidadAutos.setText("X");
+        jPanel1.add(cantidadAutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(814, 188, -1, -1));
 
         nroDiasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nroDiasDespacho.setForeground(new java.awt.Color(255, 153, 51));
@@ -501,7 +483,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 IniciarActionPerformed(evt);
             }
         });
-        jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 35, 94, -1));
+        jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 94, -1));
 
         diasTranscurridos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         diasTranscurridos.setForeground(new java.awt.Color(255, 255, 255));
@@ -545,7 +527,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Despedir_Ensamblador();
+            fabrica_autos.Despedir_Ensamblador();
         }
     }//GEN-LAST:event_despedirEnsambladorActionPerformed
 
@@ -553,71 +535,57 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Contratar_Ensamblador();
+            fabrica_autos.Contratar_Ensamblador();
         }
     }//GEN-LAST:event_contratarEnsambladorActionPerformed
 
-    private void despedirProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdExtremActionPerformed
+    private void despedirProdRuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdRuActionPerformed
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Despedir_Prod_Extremidad();
+            fabrica_autos.Despedir_Prod_Rueda();
         }
-    }//GEN-LAST:event_despedirProdExtremActionPerformed
+    }//GEN-LAST:event_despedirProdRuActionPerformed
 
-    private void contratarProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdExtremActionPerformed
+    private void contratarProdRuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdRuActionPerformed
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Contratar_Prod_Extremidad();
+            fabrica_autos.Contratar_Prod_Rueda();
         }
-    }//GEN-LAST:event_contratarProdExtremActionPerformed
+    }//GEN-LAST:event_contratarProdRuActionPerformed
 
-    private void despedirProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCuerposActionPerformed
+    private void despedirProdParActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdParActionPerformed
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Despedir_Prod_Cuerpo();
+            fabrica_autos.Despedir_Prod_Parabrisa();
         }
-    }//GEN-LAST:event_despedirProdCuerposActionPerformed
+    }//GEN-LAST:event_despedirProdParActionPerformed
 
-    private void contratarProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCuerposActionPerformed
+    private void contratarProdParActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdParActionPerformed
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Contratar_Prod_Cuerpo();
+            fabrica_autos.Contratar_Prod_Parabrisa();
         }
-    }//GEN-LAST:event_contratarProdCuerposActionPerformed
+    }//GEN-LAST:event_contratarProdParActionPerformed
 
-    private void despedirProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCabActionPerformed
+    private void despedirProdMotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdMotActionPerformed
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Despedir_Prod_Cabeza();
+            fabrica_autos.Despedir_Prod_Motor();
         }
-    }//GEN-LAST:event_despedirProdCabActionPerformed
+    }//GEN-LAST:event_despedirProdMotActionPerformed
 
-    private void contratarProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCabActionPerformed
+    private void contratarProdMotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdMotActionPerformed
         // TODO add your handling code here:
         if(flag)
         {
-            fabrica_robots.Contratar_Prod_Cabeza();
+            fabrica_autos.Contratar_Prod_Motor();
         }
-    }//GEN-LAST:event_contratarProdCabActionPerformed
-
-    private void ReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReanudarActionPerformed
-        if(flag)
-        {
-            fabrica_robots.Reanudar();
-        }
-    }//GEN-LAST:event_ReanudarActionPerformed
-
-    private void PausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausarActionPerformed
-        if(flag)
-        {
-            fabrica_robots.Pausar();
-        }
-    }//GEN-LAST:event_PausarActionPerformed
+    }//GEN-LAST:event_contratarProdMotActionPerformed
 
     /**
      * @param args the command line arguments
@@ -667,29 +635,23 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton Iniciar;
-    private javax.swing.JButton Pausar;
-    private javax.swing.JButton Reanudar;
-    private javax.swing.JTabbedPane cabezaDatos;
-    private javax.swing.JLabel cabezaRobot;
-    private javax.swing.JLabel cantRobotsProducidos;
-    private javax.swing.JLabel cantidadCabezas;
-    private javax.swing.JLabel cantidadCuerpos;
+    private javax.swing.JLabel cantAutosProducidos;
+    private javax.swing.JLabel cantidadAutos;
     private javax.swing.JLabel cantidadEnsambladores;
-    private javax.swing.JLabel cantidadExtremidades;
-    private javax.swing.JLabel cantidadProdCab;
-    private javax.swing.JLabel cantidadProdCuerpo;
-    private javax.swing.JLabel cantidadProdExtrem;
-    private javax.swing.JLabel cantidadRobots;
+    private javax.swing.JLabel cantidadMotores;
+    private javax.swing.JLabel cantidadParabrisas;
+    private javax.swing.JLabel cantidadProdMot;
+    private javax.swing.JLabel cantidadProdPar;
+    private javax.swing.JLabel cantidadProdRu;
+    private javax.swing.JLabel cantidadRuedas;
     private javax.swing.JButton contratarEnsamblador;
-    private javax.swing.JButton contratarProdCab;
-    private javax.swing.JButton contratarProdCuerpos;
-    private javax.swing.JButton contratarProdExtrem;
-    private javax.swing.JLabel cuerpo;
-    private javax.swing.JTabbedPane cuerpoDatos;
+    private javax.swing.JButton contratarProPar;
+    private javax.swing.JButton contratarProdMot;
+    private javax.swing.JButton contratarProdRu;
     private javax.swing.JButton despedirEnsamblador;
-    private javax.swing.JButton despedirProdCab;
-    private javax.swing.JButton despedirProdCuerpos;
-    private javax.swing.JButton despedirProdExtrem;
+    private javax.swing.JButton despedirProdMot;
+    private javax.swing.JButton despedirProdPar;
+    private javax.swing.JButton despedirProdRu;
     private javax.swing.JLabel diasDespacho;
     private javax.swing.JLabel diasTranscurridos;
     private javax.swing.JLabel ensambladores;
@@ -697,9 +659,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     private javax.swing.JLabel estadoGerente;
     private javax.swing.JLabel estatusCronometrador;
     private javax.swing.JLabel estatusGerente;
-    private javax.swing.JLabel extremidades;
-    private javax.swing.JTabbedPane extremidadesDatos;
-    private javax.swing.JLabel hombresMecanicos;
+    private javax.swing.JLabel ibmw;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -716,9 +676,15 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel motorAuto;
+    private javax.swing.JTabbedPane motorDatos;
     private javax.swing.JLabel nroDias;
     private javax.swing.JLabel nroDiasDespacho;
+    private javax.swing.JLabel parabrisaAuto;
+    private javax.swing.JTabbedPane parabrisaDatos;
     private javax.swing.JLabel robotimg;
+    private javax.swing.JLabel ruedasAuto;
+    private javax.swing.JTabbedPane ruedasDatos;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

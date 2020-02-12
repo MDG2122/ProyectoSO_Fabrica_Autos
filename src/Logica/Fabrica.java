@@ -1,7 +1,3 @@
-/*
- * Proyecto I SO - Trimestre 1718-2
- * Autores: César Salazar y Loredana de Miro
- */
 package Logica;
 
 import java.io.BufferedReader;
@@ -52,15 +48,15 @@ public class Fabrica
     //Variables a los que se les pasan sus valores por el archivo de texto (El orden con el que esta escrito aquí es el orden seguido en el swicht y en el .txt):
     private int tiempo_dia;             //Tiempo que dura un día
     private int dia_despacho;           //Cant. de días entre despacho    
-    private int cant_motor;            //Almacén de Cabeza
-    private int cant_parabrisa;            //Almacén de Cuerpo
-    private int cant_rueda;        //Almacén de Extremidad    
-    private int ini_prod_motor;         //Cant. inicial Productor de Cabeza
-    private int ini_prod_parabrisa;         //Cant. inicial Productor de Cuerpo
-    private int ini_prod_rueda;     //Cant. inicial Productor de Extremidad
-    private int max_prod_motor;         //Cant. máxima Productor de Cabeza
-    private int max_prod_parabrisa;         //Cant. máxima Productor de Cuerpo
-    private int max_prod_rueda;     //Cant. máxima Productor de Extremidad
+    private int cant_motor;            //Almacén de motor
+    private int cant_parabrisa;            //Almacén de parabrisas
+    private int cant_rueda;        //Almacén de ruedas    
+    private int ini_prod_motor;         //Cant. inicial Productor de motor
+    private int ini_prod_parabrisa;         //Cant. inicial Productor de parabrisas
+    private int ini_prod_rueda;     //Cant. inicial Productor de ruedas
+    private int max_prod_motor;         //Cant. máxima Productor de motor
+    private int max_prod_parabrisa;         //Cant. máxima Productor de parabrisas
+    private int max_prod_rueda;     //Cant. máxima Productor de ruedas
     private int ini_ensambladores;       //Cant. inicial de ensambladores
     private int max_ensambladores;       //Cant. máxima de ensambladores
     
@@ -297,46 +293,7 @@ public class Fabrica
         aux4--;
       }
     }
-    
-    public void Reanudar()
-    {
-        for (Object p_cab: Productor_motor)
-        {
-            ((Productor)p_cab).reanudar();
-        }
-        for (Object p_cue: Productor_parabrisa)
-        {
-            ((Productor)p_cue).reanudar();
-        }
-        for (Object p_ext: Productor_rueda)
-        {
-            ((Productor)p_ext).reanudar();
-        }
-        for (Object ens: Ensambladores)
-        {
-            ((Ensamblador)ens).reanudar();
-        }            
-    }
-    
-    public void Pausar()
-    {
-        for (Object p_cab: Productor_motor)
-        {
-            ((Productor)p_cab).pausar();
-        }
-        for (Object p_cue: Productor_parabrisa)
-        {
-            ((Productor)p_cue).pausar();
-        }
-        for (Object p_ext: Productor_rueda)
-        {
-            ((Productor)p_ext).pausar();
-        }
-        for (Object ens: Ensambladores)
-        {
-            ((Ensamblador)ens).pausar();
-        }        
-    }
+
     
     //Método que asigna asigna los valores por archivo de texto:
     public void LeerDatos()throws FileNotFoundException, IOException

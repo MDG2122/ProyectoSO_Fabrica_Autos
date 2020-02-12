@@ -97,7 +97,7 @@ public class Almacen
         this.cant_autos = cant_autos;
     }    
     
-    //Método que cuenta las cabezas en el almacén
+    //Método que cuenta los motores en el almacén
     public int Contar_Motor()
     {
         int motor_aux;
@@ -114,7 +114,7 @@ public class Almacen
         return cant_motor;
     }
     
-    //Método que cuenta los cuerpos en el almacén
+    //Método que cuenta los parabrisas en el almacén
     public int Contar_Parabrisa()
     {
         int parabrisa_aux;
@@ -130,7 +130,7 @@ public class Almacen
         return cant_parabrisa;
     }
     
-    ////Método que cuenta las extremidades en el almacén
+    ////Método que cuenta las ruedas en el almacén
     public int Contar_Rueda()
     {
         int rueda_aux;

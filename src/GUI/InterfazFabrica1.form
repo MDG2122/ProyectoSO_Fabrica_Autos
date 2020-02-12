@@ -47,7 +47,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="extremidades">
+        <Component class="javax.swing.JLabel" name="ruedasAuto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
@@ -55,15 +55,15 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Extremidades"/>
+            <Property name="text" type="java.lang.String" value="Ruedas"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="603" y="113" width="105" height="-1"/>
+              <AbsoluteConstraints x="630" y="100" width="105" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="cuerpo">
+        <Component class="javax.swing.JLabel" name="parabrisaAuto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
@@ -71,15 +71,15 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cuerpo"/>
+            <Property name="text" type="java.lang.String" value="Parabrisas"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="372" y="106" width="-1" height="-1"/>
+              <AbsoluteConstraints x="370" y="100" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="cantRobotsProducidos">
+        <Component class="javax.swing.JLabel" name="cantAutosProducidos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="ff" type="rgb"/>
@@ -90,7 +90,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nro. Robots Producidos"/>
+            <Property name="text" type="java.lang.String" value="Nro. Autos Producidos"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -114,7 +114,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="hombresMecanicos">
+        <Component class="javax.swing.JLabel" name="ibmw">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Impact" size="36" style="1"/>
@@ -122,7 +122,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="HOMBRES MEC&#xc1;NICOS C.A."/>
+            <Property name="text" type="java.lang.String" value="IBMW C.A."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -130,7 +130,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="cabezaRobot">
+        <Component class="javax.swing.JLabel" name="motorAuto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
@@ -138,11 +138,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cabeza"/>
+            <Property name="text" type="java.lang.String" value="Motor"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="139" y="104" width="60" height="-1"/>
+              <AbsoluteConstraints x="110" y="100" width="60" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -178,36 +178,10 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="Pausar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pausar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PausarActionPerformed"/>
-          </Events>
+        <Container class="javax.swing.JTabbedPane" name="motorDatos">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="719" y="35" width="94" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JButton" name="Reanudar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Reanudar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReanudarActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="866" y="35" width="94" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Container class="javax.swing.JTabbedPane" name="cabezaDatos">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="42" y="139" width="200" height="-1"/>
+              <AbsoluteConstraints x="42" y="139" width="210" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -233,12 +207,12 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="cantidadCabezas" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadMotores" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -254,10 +228,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="cantidadCabezas" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadMotores" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -265,10 +239,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cantidad de cabezas producidas:"/>
+                    <Property name="text" type="java.lang.String" value="Motores producidos:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cantidadCabezas">
+                <Component class="javax.swing.JLabel" name="cantidadMotores">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="30" style="1"/>
@@ -299,18 +273,18 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="cantidadProdCab" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="cantidadProdMot" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="40" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="contratarProdCab" max="32767" attributes="0"/>
-                              <Component id="despedirProdCab" max="32767" attributes="0"/>
+                              <Component id="contratarProdMot" max="32767" attributes="0"/>
+                              <Component id="despedirProdMot" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -321,11 +295,11 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cantidadProdCab" min="-2" max="-2" attributes="0"/>
+                              <Component id="cantidadProdMot" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="contratarProdCab" min="-2" max="-2" attributes="0"/>
+                                  <Component id="contratarProdMot" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="despedirProdCab" min="-2" max="-2" attributes="0"/>
+                                  <Component id="despedirProdMot" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="28" max="32767" attributes="0"/>
@@ -336,10 +310,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cantidad de productores de cabezas:"/>
+                    <Property name="text" type="java.lang.String" value="Productores de motores:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cantidadProdCab">
+                <Component class="javax.swing.JLabel" name="cantidadProdMot">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="36" style="1"/>
@@ -347,30 +321,30 @@
                     <Property name="text" type="java.lang.String" value="X"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="contratarProdCab">
+                <Component class="javax.swing.JButton" name="contratarProdMot">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="contratar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contratarProdCabActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contratarProdMotActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="despedirProdCab">
+                <Component class="javax.swing.JButton" name="despedirProdMot">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="despedir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="despedirProdCabActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="despedirProdMotActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="cuerpoDatos">
+        <Container class="javax.swing.JTabbedPane" name="parabrisaDatos">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="299" y="141" width="200" height="175"/>
+              <AbsoluteConstraints x="299" y="141" width="210" height="175"/>
             </Constraint>
           </Constraints>
 
@@ -388,17 +362,20 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="20" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="cantidadCuerpos" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="cantidadParabrisas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="26" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -408,13 +385,13 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="cantidadCuerpos" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadParabrisas" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -425,10 +402,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cantidad de cuerpos producidos:"/>
+                    <Property name="text" type="java.lang.String" value="Parabrisas producidos:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cantidadCuerpos">
+                <Component class="javax.swing.JLabel" name="cantidadParabrisas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="30" style="1"/>
@@ -464,11 +441,11 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="cantidadProdCuerpo" min="-2" max="-2" attributes="0"/>
+                          <Component id="cantidadProdPar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="contratarProdCuerpos" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="despedirProdCuerpos" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="contratarProPar" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="despedirProdPar" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
@@ -482,13 +459,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="cantidadProdCuerpo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadProdPar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="contratarProdCuerpos" min="-2" max="-2" attributes="0"/>
+                                  <Component id="contratarProPar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="despedirProdCuerpos" min="-2" max="-2" attributes="0"/>
+                                  <Component id="despedirProdPar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -499,10 +476,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cantidad de productores de cuerpos:"/>
+                    <Property name="text" type="java.lang.String" value="Productores de parabrisas:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cantidadProdCuerpo">
+                <Component class="javax.swing.JLabel" name="cantidadProdPar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="36" style="1"/>
@@ -510,30 +487,30 @@
                     <Property name="text" type="java.lang.String" value="X"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="contratarProdCuerpos">
+                <Component class="javax.swing.JButton" name="contratarProPar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="contratar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contratarProdCuerposActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contratarProdParActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="despedirProdCuerpos">
+                <Component class="javax.swing.JButton" name="despedirProdPar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="despedir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="despedirProdCuerposActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="despedirProdParActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="extremidadesDatos">
+        <Container class="javax.swing.JTabbedPane" name="ruedasDatos">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="141" width="219" height="175"/>
+              <AbsoluteConstraints x="560" y="141" width="210" height="175"/>
             </Constraint>
           </Constraints>
 
@@ -551,16 +528,20 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="cantidadExtremidades" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="cantidadRuedas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -570,9 +551,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="cantidadExtremidades" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadRuedas" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -587,10 +568,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cantidad de extremidades producidas:"/>
+                    <Property name="text" type="java.lang.String" value="Ruedas producidas:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cantidadExtremidades">
+                <Component class="javax.swing.JLabel" name="cantidadRuedas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="30" style="1"/>
@@ -626,11 +607,11 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="cantidadProdExtrem" min="-2" max="-2" attributes="0"/>
+                          <Component id="cantidadProdRu" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="contratarProdExtrem" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="despedirProdExtrem" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="contratarProdRu" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="despedirProdRu" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       </Group>
@@ -644,13 +625,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="cantidadProdExtrem" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cantidadProdRu" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="contratarProdExtrem" min="-2" max="-2" attributes="0"/>
+                                  <Component id="contratarProdRu" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="despedirProdExtrem" min="-2" max="-2" attributes="0"/>
+                                  <Component id="despedirProdRu" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -661,10 +642,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cantidad de productores de Extremidades:"/>
+                    <Property name="text" type="java.lang.String" value="Productores de Ruedas:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cantidadProdExtrem">
+                <Component class="javax.swing.JLabel" name="cantidadProdRu">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="36" style="1"/>
@@ -672,20 +653,20 @@
                     <Property name="text" type="java.lang.String" value="X"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="contratarProdExtrem">
+                <Component class="javax.swing.JButton" name="contratarProdRu">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="contratar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contratarProdExtremActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contratarProdRuActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="despedirProdExtrem">
+                <Component class="javax.swing.JButton" name="despedirProdRu">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="despedir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="despedirProdExtremActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="despedirProdRuActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -762,7 +743,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="cantidadRobots">
+        <Component class="javax.swing.JLabel" name="cantidadAutos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="36" style="1"/>
@@ -835,7 +816,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="571" y="35" width="94" height="-1"/>
+              <AbsoluteConstraints x="730" y="30" width="94" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
