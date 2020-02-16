@@ -2,9 +2,12 @@ package GUI;
 
 import javax.swing.JLabel;
 import Logica.*;
+import java.awt.Image;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class InterfazFabrica1 extends javax.swing.JFrame 
 {
@@ -17,8 +20,16 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         initComponents();
         this.setLocationRelativeTo(null);
         fabrica_autos= new Fabrica (this.nroDiasDespacho, this.cantidadMotores, this.cantidadParabrisas, this.cantidadRuedas, this.cantidadProdMot, this.cantidadProdPar, this.cantidadProdRu, this.cantidadEnsambladores, this.cantidadAutos, this.estadoGerente, this.estadoCrono, this.nroDias);
-        fabrica_autos.Inicializar_ArrayLists();
-        flag=false;
+        fabrica_autos.Inicializar_ArrayLists();       flag=false;
+        ImageIcon imagenMot = new ImageIcon( "src/Imagenes/motor.jpg");
+        Icon iconoMot = new ImageIcon(imagenMot.getImage().getScaledInstance(motorlabel.getWidth(),motorlabel.getHeight(),Image.SCALE_DEFAULT));
+        motorlabel.setIcon(iconoMot); ImageIcon imagenPar = new ImageIcon( "src/Imagenes/parabrisa.jpg");
+        Icon iconoPar = new ImageIcon(imagenPar.getImage().getScaledInstance(parabrisalabel.getWidth(),parabrisalabel.getHeight(),Image.SCALE_DEFAULT));
+        parabrisalabel.setIcon(iconoPar); ImageIcon imagenRu = new ImageIcon( "src/Imagenes/rueda.jpg");
+        Icon iconoRu = new ImageIcon(imagenRu.getImage().getScaledInstance(ruedalabel.getWidth(),ruedalabel.getHeight(),Image.SCALE_DEFAULT));
+        ruedalabel.setIcon(iconoRu); ImageIcon imagenAuto = new ImageIcon( "src/Imagenes/auto.jpg");
+        Icon iconoAuto = new ImageIcon(imagenAuto.getImage().getScaledInstance(autolabel.getWidth(),autolabel.getHeight(),Image.SCALE_DEFAULT));
+        autolabel.setIcon(iconoAuto);
     }
     public void activar_botones()
     {
@@ -49,7 +60,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cantidadMotores = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        motorlabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cantidadProdMot = new javax.swing.JLabel();
@@ -59,7 +70,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cantidadParabrisas = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        parabrisalabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         cantidadProdPar = new javax.swing.JLabel();
@@ -69,7 +80,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         cantidadRuedas = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        ruedalabel = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         cantidadProdRu = new javax.swing.JLabel();
@@ -79,7 +90,6 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         contratarEnsamblador = new javax.swing.JButton();
         despedirEnsamblador = new javax.swing.JButton();
         cantidadEnsambladores = new javax.swing.JLabel();
-        robotimg = new javax.swing.JLabel();
         cantidadAutos = new javax.swing.JLabel();
         nroDiasDespacho = new javax.swing.JLabel();
         estadoGerente = new javax.swing.JLabel();
@@ -87,6 +97,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         Iniciar = new javax.swing.JButton();
         diasTranscurridos = new javax.swing.JLabel();
         nroDias = new javax.swing.JLabel();
+        autolabel = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
@@ -139,28 +150,27 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         estatusCronometrador.setText("Estatus Cronometrador:");
         jPanel1.add(estatusCronometrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 390, -1, -1));
 
+        jPanel2.setMaximumSize(new java.awt.Dimension(100, 100));
+
         jLabel1.setText("Motores producidos:");
 
         cantidadMotores.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         cantidadMotores.setText("X");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/head.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(cantidadMotores)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(97, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(cantidadMotores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(motorlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,12 +179,12 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addComponent(jLabel1)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(cantidadMotores)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addComponent(cantidadMotores))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(motorlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         motorDatos.addTab("Producción", jPanel2);
@@ -227,19 +237,17 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(contratarProdMot)
                         .addGap(18, 18, 18)
                         .addComponent(despedirProdMot)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         motorDatos.addTab("Productor", jPanel3);
 
-        jPanel1.add(motorDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 139, 210, -1));
+        jPanel1.add(motorDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 170));
 
         jLabel4.setText("Parabrisas producidos:");
 
         cantidadParabrisas.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         cantidadParabrisas.setText("X");
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/body.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -250,12 +258,13 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(cantidadParabrisas)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(parabrisalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,12 +273,12 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 .addComponent(jLabel4)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(cantidadParabrisas)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cantidadParabrisas))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(parabrisalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         parabrisaDatos.addTab("Producción", jPanel4);
@@ -324,35 +333,32 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(contratarProPar)
                         .addGap(18, 18, 18)
                         .addComponent(despedirProdPar)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         parabrisaDatos.addTab("Productor", jPanel5);
 
-        jPanel1.add(parabrisaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 141, 210, 175));
+        jPanel1.add(parabrisaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 141, 210, 170));
 
         jLabel8.setText("Ruedas producidas:");
 
         cantidadRuedas.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         cantidadRuedas.setText("X");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arms.jpg"))); // NOI18N
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(cantidadRuedas)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(cantidadRuedas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(ruedalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,8 +371,8 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(cantidadRuedas))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ruedalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         ruedasDatos.addTab("Producción", jPanel6);
@@ -421,12 +427,12 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(contratarProdRu)
                         .addGap(18, 18, 18)
                         .addComponent(despedirProdRu)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         ruedasDatos.addTab("Productor", jPanel7);
 
-        jPanel1.add(ruedasDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 141, 210, 175));
+        jPanel1.add(ruedasDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 141, 210, 170));
 
         ensambladores.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ensambladores.setForeground(new java.awt.Color(255, 255, 255));
@@ -453,9 +459,6 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         cantidadEnsambladores.setForeground(new java.awt.Color(255, 153, 51));
         cantidadEnsambladores.setText("X");
         jPanel1.add(cantidadEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 374, -1, -1));
-
-        robotimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/robot.jpg"))); // NOI18N
-        jPanel1.add(robotimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 141, -1, -1));
 
         cantidadAutos.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cantidadAutos.setForeground(new java.awt.Color(255, 153, 51));
@@ -494,6 +497,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         nroDias.setForeground(new java.awt.Color(255, 153, 51));
         nroDias.setText("X");
         jPanel1.add(nroDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 334, -1, -1));
+        jPanel1.add(autolabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 190, 120, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 50, 1010, 450));
 
@@ -635,6 +639,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton Iniciar;
+    private javax.swing.JLabel autolabel;
     private javax.swing.JLabel cantAutosProducidos;
     private javax.swing.JLabel cantidadAutos;
     private javax.swing.JLabel cantidadEnsambladores;
@@ -661,11 +666,8 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     private javax.swing.JLabel estatusGerente;
     private javax.swing.JLabel ibmw;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -678,11 +680,13 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel motorAuto;
     private javax.swing.JTabbedPane motorDatos;
+    private javax.swing.JLabel motorlabel;
     private javax.swing.JLabel nroDias;
     private javax.swing.JLabel nroDiasDespacho;
     private javax.swing.JLabel parabrisaAuto;
     private javax.swing.JTabbedPane parabrisaDatos;
-    private javax.swing.JLabel robotimg;
+    private javax.swing.JLabel parabrisalabel;
+    private javax.swing.JLabel ruedalabel;
     private javax.swing.JLabel ruedasAuto;
     private javax.swing.JTabbedPane ruedasDatos;
     private javax.swing.JButton salir;
