@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Cronometrador extends Thread
+public class Jefe extends Thread
 {
     //Variables:
     private int tiempo;
@@ -15,7 +15,7 @@ public class Cronometrador extends Thread
     private boolean escritura = false;
     
     //Constructor:
-    public Cronometrador(int tiempo, Contador cont_dia, JLabel estadoCrono, JLabel nroDiasDespacho, JLabel nroDias, Semaphore SE_Calendar) 
+    public Jefe(int tiempo, Contador cont_dia, JLabel estadoCrono, JLabel nroDiasDespacho, JLabel nroDias, Semaphore SE_Calendar) 
     {
         this.tiempo = tiempo;
         this.estadoCrono = estadoCrono;
@@ -38,40 +38,40 @@ public class Cronometrador extends Thread
            
                 try 
                 {
-                  sleep((long)(((tiempo*1000)*22.8)/24));
+                  sleep((long)(((tiempo*1000)*22.5)/24));
                 } 
                 catch (InterruptedException ex) 
                 {
-                Logger.getLogger(Cronometrador.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
                 }
                  estadoCrono.setText("Escribiendo");
                 
             } 
             catch (InterruptedException ex) 
             {
-                Logger.getLogger(Cronometrador.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
             }
                
-                try 
-                {
-                    sleep(tiempo*1000);
-                } 
-                catch (InterruptedException ex) 
-                {
-                    Logger.getLogger(Cronometrador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            try 
+            {
+                sleep(1000*tiempo);
+            } 
+            catch (InterruptedException ex) 
+            {
+                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 cont_dia.incrementarCont_dia();
                 nroDias.setText(Integer.toString(cont_dia.getCont_dia()));
                 cont_dia.decrementarCont_dia_despacho();
                 nroDiasDespacho.setText(Integer.toString(cont_dia.getCont_dia_despacho()));
-                
+                 
             try 
             {
-                sleep((long) (((tiempo*1000)*22.8)/24));
+                sleep((long) (((tiempo*1000)*22.5)/24));
             } 
             catch (InterruptedException ex) 
             {
-                Logger.getLogger(Cronometrador.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
             }
             estadoCrono.setText("Durmiendo");
             

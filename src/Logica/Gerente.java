@@ -11,21 +11,21 @@ public class Gerente extends Thread
 {
     //Variables:
     private Contador cont_dia;
-    private Semaphore SE_Robots;
+    private Semaphore SE_Autos;
     private Random random = new Random();
     private Almacen almacen;
     private boolean revision;
-    private JLabel estadoGerente, cantRobots;
+    private JLabel estadoGerente, cantAutos;
     private int tiempo_Duerme, tiempo_Dia;
     
     //Constructor:
-    public Gerente(Contador cont_dia, Semaphore SE_Robots, Almacen almacen, JLabel estadoGerente, JLabel cantRobots, int tiempo_Dia) 
+    public Gerente(Contador cont_dia, Semaphore SE_Autos, Almacen almacen, JLabel estadoGerente, JLabel cantAutos, int tiempo_Dia) 
     {
         this.cont_dia = cont_dia;
-        this.SE_Robots = SE_Robots;
+        this.SE_Autos = SE_Autos;
         this.almacen = almacen;
         this.estadoGerente = estadoGerente;
-        this.cantRobots = cantRobots;
+        this.cantAutos = cantAutos;
         this.tiempo_Dia = tiempo_Dia;
     }
     
@@ -82,11 +82,11 @@ public class Gerente extends Thread
                     }
                 
                 
-                if(cont_dia.getCont_dia_despacho()==0)
+                if(cont_dia.getCont_dia_despacho()==1)
                 {
-                    SE_Robots.acquire();
+                    SE_Autos.acquire();
                     almacen.setCant_autos(0);
-                    cantRobots.setText(Integer.toString(almacen.getCant_autos()));
+                    cantAutos.setText(Integer.toString(almacen.getCant_autos()));
                     try 
                     {
                         sleep (tiempo_Dia*1000);
@@ -108,14 +108,9 @@ public class Gerente extends Thread
             {
                Logger.getLogger(Gerente.class.getName()).log(Level.SEVERE, null, ex);
            }
-           SE_Robots.release(); 
+           SE_Autos.release(); 
         }
     }        
     
-    
-    
-    
-
-
 
 }

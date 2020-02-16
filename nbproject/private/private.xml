@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Ensamblador.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Gerente.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Jefe.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/GUI/InterfazFabrica1.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Contador.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Productor.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Almacen.java</file>
+            <file>file:/home/cesar/Documentos/Java%20Proyects/ProyectoSO_Fabrica_Autos/src/Logica/Fabrica.java</file>
+        </group>
     </open-files>
 </project-private>

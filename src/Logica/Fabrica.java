@@ -13,7 +13,7 @@ public class Fabrica
     //Variables a usar:
     
     //Llamadas a otras clases:
-    private Cronometrador cronometrador;
+    private Jefe cronometrador;
     private Almacen almacen;
     private Contador contador;
     private Gerente gerente;
@@ -192,7 +192,8 @@ public class Fabrica
         {
             Productor_motor.remove(Productor_motor.size()-1);
             ini_prod_motor--;
-            cantidadProdMot.setText(Integer.toString(ini_prod_motor));             
+            cantidadProdMot.setText(Integer.toString(ini_prod_motor));
+            System.out.println("#Productor de Motor despedido#");
         }
           
     }         
@@ -204,7 +205,8 @@ public class Fabrica
         {
             Productor_parabrisa.remove(Productor_parabrisa.size()-1);
             ini_prod_parabrisa--;
-            cantidadProdPar.setText(Integer.toString(ini_prod_parabrisa));             
+            cantidadProdPar.setText(Integer.toString(ini_prod_parabrisa));
+            System.out.println("#Productor de Parabrisas despedido#");
         }
     }
     
@@ -215,7 +217,8 @@ public class Fabrica
         {
             Productor_rueda.remove(Productor_rueda.size()-1);
             ini_prod_rueda--;
-            cantidadProdRu.setText(Integer.toString(ini_prod_rueda));              
+            cantidadProdRu.setText(Integer.toString(ini_prod_rueda));
+            System.out.println("#Productor de Ruedas despedido#");
         }
     }
     
@@ -226,7 +229,8 @@ public class Fabrica
         {
                 Ensambladores.remove(Ensambladores.size()-1);
                 ini_ensambladores--;
-                cantidadEnsambladores.setText(Integer.toString(ini_ensambladores)); 
+                cantidadEnsambladores.setText(Integer.toString(ini_ensambladores));
+                System.out.println("#Ensamblasor despedido#");
         }
     }
      
@@ -254,7 +258,7 @@ public class Fabrica
         }
         
         contador = new Contador(dia_despacho);
-        cronometrador = new Cronometrador (tiempo_dia, contador, estadoCrono, nroDiasDespacho, nroDias, SE_Calendario);
+        cronometrador = new Jefe (tiempo_dia, contador, estadoCrono, nroDiasDespacho, nroDias, SE_Calendario);
         gerente = new Gerente (contador, SE_Ensamblador, almacen, estadoGerente, cantidadAutos, tiempo_dia);
         cronometrador.start();
         gerente.start();
@@ -277,7 +281,7 @@ public class Fabrica
       
       while (aux2!=0)
       {
-        Productor_parabrisa.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 1, cantidadParabrisas, 3));
+        Productor_parabrisa.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 1, cantidadParabrisas, 2));
         aux2--;
       }
       

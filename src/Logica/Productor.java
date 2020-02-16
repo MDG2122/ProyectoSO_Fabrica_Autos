@@ -14,7 +14,6 @@ public class Productor extends Thread
     private int tipo, cont_pieza, apuntador=0; //Tipos: 0->Motor, 1->Parabrisa, 2->Rueda
     private JLabel label;
     private int tiempo_produccion;
-    private boolean pausar=false;
     
     //Constructor:
     public Productor(Almacen almacen, Semaphore Semaforo_Excluyente, Semaphore Semaforo_Productor, Semaphore Semaforo_Ensamblador, int tipo, JLabel label, int tiempo_produccion) 
@@ -106,86 +105,63 @@ public class Productor extends Thread
      public void run ()
      {
         while(true)
-        {   
-            //Productor de Motor:
-            if(tipo==0)
+        {
+            
+            try 
             {
-                try 
-                {
-                    //Comprueba espacio en el almacen:
-                    Semaforo_Productor.acquire();
-                    
-                    //Produce:
-                    
-                    //Entra en el almacen:                    
-                    Semaforo_Excluyente.acquire();
-                    //sleep(1000*tiempo_produccion);
-                    System.out.println("+Productor de Motor: Produce un motor de auto+");
-                    //Deja lo producido en el almacen:
-                    almacen.setCant_motor(apuntador, 1);
-                        sleep(1000*tiempo_produccion);
-                    apuntador = (apuntador + 1)%almacen.getTam_motor();
-                    label.setText(Integer.toString(almacen.Contar_Motor()));
-                        
-                    //Se sale del almacen:                          
-                    Semaforo_Excluyente.release();
-                    
-                    //Listo para consumir                    
-                    Semaforo_Ensamblador.release();
+                
+                //Comprueba espacio en el almacen:
+                Semaforo_Productor.acquire();
+                //Entra en el almacen:                    
+                Semaforo_Excluyente.acquire();
+                long start = System.currentTimeMillis();
+                sleep(1000*tiempo_produccion*3);
+                long stop = System.currentTimeMillis();
+                producir(tipo, start, stop);
+                //Se sale del almacen:                          
+                Semaforo_Excluyente.release();
+                //Listo para consumir                    
+                Semaforo_Ensamblador.release();
 
-                } 
-                catch (InterruptedException ex) 
-                {
-                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-                }                
+                                    
+            } 
+            catch (InterruptedException ex) 
+            {
+                Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+
             }
-            //Productor parabrisa:
-            else if(tipo==1)
-            {
-                try 
-                {
-                    Semaforo_Productor.acquire();
-                    //sleep(1000*tiempo_produccion);
-                    System.out.println("+ Productor de parabrisa: Produce un parabrisa de autos+");
-                    Semaforo_Excluyente.acquire();
-                    almacen.setCant_parabrisa(apuntador, 1);
-                        sleep(1000*tiempo_produccion);
-                    apuntador = (apuntador + 1)%almacen.getTam_parabrisa();
-                    label.setText(Integer.toString(almacen.Contar_Parabrisa()));                  
-                    Semaforo_Excluyente.release();
-                    Semaforo_Ensamblador.release();
-  
-
-                } 
-                catch (InterruptedException ex) 
-                {
-                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-                }                
-            }
-            //Productor de Rueda:
-            else
-            {
-                try 
-                {
-                    Semaforo_Productor.acquire();
-                    //sleep(1000*tiempo_produccion);
-                    System.out.println("+Productor de Rueda: Produce una rueda de auto+");
-                    Semaforo_Excluyente.acquire();
-                    almacen.setCant_rueda(apuntador, 1);
-                        sleep(1000*tiempo_produccion);
-                    apuntador = (apuntador + 1)%almacen.getTam_rueda();
-                    label.setText(Integer.toString(almacen.Contar_Rueda())); 
-                    Semaforo_Excluyente.release();
-                    Semaforo_Ensamblador.release();
-
-                } 
-                catch (InterruptedException ex) 
-                {
-                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-                }                
-            }               
+            
         }    
-    } 
+    }
+     
+    public void producir(int tipo, long start, long stop)
+    {
+        if(tipo==0)
+        {
+            System.out.println("+Productor de Motor: Produce un motor de auto+");
+            //Deja lo producido en el almacen:
+            almacen.setCant_motor(apuntador, 1);
+            apuntador = (apuntador + 1)%almacen.getTam_motor();
+            System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
+            label.setText(Integer.toString(almacen.Contar_Motor()));
+        }
+        else if(tipo==1)
+        {
+            System.out.println("+ Productor de parabrisa: Produce un parabrisa de autos+");
+            almacen.setCant_parabrisa(apuntador, 1);
+            apuntador = (apuntador + 1)%almacen.getTam_parabrisa();
+            System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
+            label.setText(Integer.toString(almacen.Contar_Parabrisa()));               
+        }
+        else
+        {
+            System.out.println("+Productor de Rueda: Produce una rueda de auto+");
+            almacen.setCant_rueda(apuntador, 1);
+            apuntador = (apuntador + 1)%almacen.getTam_rueda();
+            System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
+            label.setText(Integer.toString(almacen.Contar_Rueda()));             
+        }
+    }
        
 
 }

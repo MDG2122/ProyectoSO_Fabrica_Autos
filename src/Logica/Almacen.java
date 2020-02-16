@@ -76,7 +76,6 @@ public class Almacen
         this.almacen_motor[apuntador_Mot] = val;
     }
     
-
     public void setCant_parabrisa(int apuntador_Pa, int val) 
     {
         this.almacen_parabrisa[apuntador_Pa] = val;
@@ -95,7 +94,11 @@ public class Almacen
     public void setCant_autos(int cant_autos) 
     {
         this.cant_autos = cant_autos;
-    }    
+    }
+    public void incrementar_autos() 
+    {
+        this.cant_autos++;
+    }     
     
     //Método que cuenta los motores en el almacén
     public int Contar_Motor()
