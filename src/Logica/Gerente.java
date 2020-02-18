@@ -70,31 +70,24 @@ public class Gerente extends Thread
             {
                 tiempo_Duerme=(this.random.nextInt(18));
 
-                    if(tiempo_Duerme<6)
-                    {
-                        sleep(((tiempo_Dia*1000)*6)/24);
-                        estadoGerente.setText("Dormido");
-                    }
-                    else if(tiempo_Duerme>=6)
-                    {
-                        sleep(((tiempo_Dia*1000)*tiempo_Duerme)/24);
-                        estadoGerente.setText("Dormido");                        
-                    }
+                if(tiempo_Duerme<6)
+                {
+                    sleep(((tiempo_Dia*1000)*6)/24);
+                    estadoGerente.setText("Dormido");
+                }
+                else if(tiempo_Duerme>=6)
+                {
+                    sleep(((tiempo_Dia*1000)*tiempo_Duerme)/24);
+                    estadoGerente.setText("Dormido");                        
+                }
+
                 
-                
-                if(cont_dia.getCont_dia_despacho()==1)
+                if(cont_dia.getCont_dia_despacho()==0)
                 {
                     SE_Autos.acquire();
                     almacen.setCant_autos(0);
                     cantAutos.setText(Integer.toString(almacen.getCant_autos()));
-                    try 
-                    {
-                        sleep (tiempo_Dia*1000);
-                    } 
-                    catch (InterruptedException ex) 
-                    {
-                        Logger.getLogger(Gerente.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    sleep (tiempo_Dia*1000);
                     estadoGerente.setText("Despachando");
                 }                          
                 else
@@ -103,12 +96,13 @@ public class Gerente extends Thread
                     estadoGerente.setText("Verificando");
                 }
                 
+                SE_Autos.release(); 
+                
             }
             catch (InterruptedException ex) 
             {
                Logger.getLogger(Gerente.class.getName()).log(Level.SEVERE, null, ex);
            }
-           SE_Autos.release(); 
         }
     }        
     

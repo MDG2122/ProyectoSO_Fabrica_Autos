@@ -127,6 +127,7 @@ public class Fabrica
         Productor_parabrisa= new ArrayList<Productor>(max_prod_parabrisa);
         Productor_rueda= new ArrayList<Productor>(max_prod_rueda);
         Ensambladores= new ArrayList<Ensamblador>(max_ensambladores);
+
         
     }
     
@@ -135,7 +136,7 @@ public class Fabrica
     {
         if (ini_prod_motor!=max_prod_motor) 
         {
-           Productor Prod_Motor = new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 2);
+           Productor Prod_Motor = new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 3);
            Productor_motor.add(Prod_Motor);
            ini_prod_motor++;
            cantidadProdMot.setText(Integer.toString(ini_prod_motor));  
@@ -148,7 +149,7 @@ public class Fabrica
     {
         if (ini_prod_parabrisa!=max_prod_parabrisa) 
         {
-           Productor Prod_Parabrisa = new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 3);
+           Productor Prod_Parabrisa = new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 2);
            Productor_parabrisa.add(Prod_Parabrisa);
            ini_prod_parabrisa++;
            cantidadProdPar.setText(Integer.toString(ini_prod_parabrisa));  
@@ -237,19 +238,19 @@ public class Fabrica
     //Método para empezar la producción-ensamblaje:
     public void Producir_Ensamblar()
     {
-        for (Object prod_cab: Productor_motor) 
+        for (Object prod_mot: Productor_motor) 
         {
-          ((Productor)prod_cab).start(); 
+          ((Productor)prod_mot).start(); 
         }
        
-        for (Object prod_cue: Productor_parabrisa) 
+        for (Object prod_par: Productor_parabrisa) 
         {
-          ((Productor)prod_cue).start();
+          ((Productor)prod_par).start();
         }
         
-        for (Object prod_ext: Productor_rueda) 
+        for (Object prod_ru: Productor_rueda) 
         {
-          ((Productor)prod_ext).start();
+          ((Productor)prod_ru).start();
         }
        
         for (Object ens: Ensambladores) 
@@ -275,19 +276,19 @@ public class Fabrica
         
       while (aux1!=0)
       { 
-        Productor_motor.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 2));
+        Productor_motor.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 3));
         aux1--;
       }
       
       while (aux2!=0)
       {
-        Productor_parabrisa.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 1, cantidadParabrisas, 2));
+        Productor_parabrisa.add(new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 2));
         aux2--;
       }
       
       while (aux3!=0)
       {
-        Productor_rueda.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 2, cantidadRuedas, 1));
+        Productor_rueda.add(new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, 1));
         aux3--;
       }
        

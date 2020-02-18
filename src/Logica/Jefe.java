@@ -30,58 +30,36 @@ public class Jefe extends Thread
     {
         while(true)
         {
-
-            try 
+            try
             {
+                estadoCrono.setText("Durmiendo");
+                sleep((long) (((tiempo*1000)*22.5)/24));
                 
                 SE_Calendar.acquire();
-           
-                try 
-                {
-                  sleep((long)(((tiempo*1000)*22.5)/24));
-                } 
-                catch (InterruptedException ex) 
-                {
-                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                 estadoCrono.setText("Escribiendo");
+                estadoCrono.setText("Escribiendo");
                 
-            } 
-            catch (InterruptedException ex) 
-            {
-                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
-            }
-               
-            try 
-            {
-                sleep(1000*tiempo);
-            } 
-            catch (InterruptedException ex) 
-            {
-                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                cont_dia.incrementarCont_dia();
-                nroDias.setText(Integer.toString(cont_dia.getCont_dia()));
-                cont_dia.decrementarCont_dia_despacho();
-                nroDiasDespacho.setText(Integer.toString(cont_dia.getCont_dia_despacho()));
-                 
-            try 
-            {
-                sleep((long) (((tiempo*1000)*22.5)/24));
-            } 
-            catch (InterruptedException ex) 
-            {
-                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            estadoCrono.setText("Durmiendo");
-            
-            SE_Calendar.release();
-            if (cont_dia.getCont_dia_despacho()== 0) 
+                if (cont_dia.getCont_dia_despacho()== 0) 
                 {
                     cont_dia.setCont_dia_despacho(cont_dia.getDia_original());
-                }            
+                    SE_Calendar.release();
+                }
+                else
+                {   
+                    cont_dia.decrementarCont_dia_despacho();
+                    nroDiasDespacho.setText(Integer.toString(cont_dia.getCont_dia_despacho()));
+                    sleep((long)(((tiempo*1000)*1.5)/24));
+                    cont_dia.incrementarCont_dia();
+                    nroDias.setText(Integer.toString(cont_dia.getCont_dia()));                    
+                    SE_Calendar.release();
+                }
+                
+                
+            }
+            catch (InterruptedException ex) 
+            {
+                Logger.getLogger(Jefe.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-            nroDiasDespacho.setText(Integer.toString(cont_dia.getCont_dia_despacho()));
                
         }
     }

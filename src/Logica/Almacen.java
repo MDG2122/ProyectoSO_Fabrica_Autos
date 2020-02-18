@@ -137,16 +137,16 @@ public class Almacen
     public int Contar_Rueda()
     {
         int rueda_aux;
-        cant_parabrisa = 0;
+        cant_rueda = 0;
         
         for(int i=0; i<tam_rueda; i++){
             rueda_aux = getValor_Almacen_rueda(i);
             if (rueda_aux == 1)
             {
-               cant_parabrisa++; 
+               cant_rueda++; 
             }
         }
-        return cant_parabrisa;
+        return cant_rueda;
     }
    
 }

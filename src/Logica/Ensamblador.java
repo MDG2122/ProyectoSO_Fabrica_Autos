@@ -38,6 +38,7 @@ public class Ensamblador extends Thread
     @Override
     public void run()
     {
+        
         while (true)
         {
 
@@ -74,9 +75,12 @@ public class Ensamblador extends Thread
                 Semaforo_ExcluyenteEnsamblador.release();
                
                 long start = System.currentTimeMillis();
-                sleep(1000*tiempo_ensamblaje*3);
+                sleep(1000*tiempo_ensamblaje);
                 long stop = System.currentTimeMillis(); 
                 ensamblar(start, stop);
+                
+                
+                
                                     
             } 
             catch (InterruptedException ex) 
@@ -98,32 +102,36 @@ public class Ensamblador extends Thread
     
     public void consumirMotor()
     {
+        
         if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
         {
             almacen.setCant_motor(apuntador_Motor, 0);
             Motores.setText(Integer.toString(almacen.Contar_Motor()));
             apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
-            System.out.println("#Ensamblador toma un motor de auto#");
+            System.out.println("#Ensamblador toma un motor de auto#\n");
         }
         else
         {
             apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
         }
+
     }
     
     public void consumirParabrisa()
     {
+
         if(almacen.getValor_Almacen_parabrisa(apuntador_Parabrisa)==1)
         {
             almacen.setCant_parabrisa(apuntador_Parabrisa, 0);
             Parabrisas.setText(Integer.toString(almacen.Contar_Parabrisa()));
             apuntador_Parabrisa = (apuntador_Parabrisa+1)%almacen.getTam_parabrisa(); 
-            System.out.println("#Ensamblador toma un parabrisa de auto#");
+            System.out.println("#Ensamblador toma un parabrisa de auto#\n");
         }
         else
         {
             apuntador_Parabrisa = (apuntador_Parabrisa + 1)%almacen.getTam_parabrisa();
         }
+
     }
     
     public void consumirRuedas()
@@ -135,15 +143,15 @@ public class Ensamblador extends Thread
                 almacen.setCant_rueda(apuntador_Rueda, 0);
                 Ruedas.setText(Integer.toString(almacen.Contar_Rueda()));
                 apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
-                System.out.println("#Ensamblador toma una rueda de auto#");   
+                System.out.println("#Ensamblador toma una rueda de auto#\n");
             }
             else
             {
                 apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
-            }               
+            }   
         }
-        
     }
+    
         
 
     

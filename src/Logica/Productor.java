@@ -107,34 +107,119 @@ public class Productor extends Thread
         while(true)
         {
             
-            try 
+            if(tipo==0)
             {
-                
-                //Comprueba espacio en el almacen:
-                Semaforo_Productor.acquire();
-                //Entra en el almacen:                    
-                Semaforo_Excluyente.acquire();
-                long start = System.currentTimeMillis();
-                sleep(1000*tiempo_produccion*3);
-                long stop = System.currentTimeMillis();
-                producir(tipo, start, stop);
-                //Se sale del almacen:                          
-                Semaforo_Excluyente.release();
-                //Listo para consumir                    
-                Semaforo_Ensamblador.release();
+                try 
+                {
 
-                                    
-            } 
-            catch (InterruptedException ex) 
+                    //Comprueba espacio en el almacen:
+                    Semaforo_Productor.acquire();
+                    
+                    long start = System.currentTimeMillis();
+                    sleep(1000*tiempo_produccion);
+                    long stop = System.currentTimeMillis();
+                    
+                    //Entra en el almacen:                    
+                    Semaforo_Excluyente.acquire();
+                    producirMotor(start, stop);
+                    //Se sale del almacen:                          
+                    Semaforo_Excluyente.release();
+                    //Listo para consumir                    
+                    Semaforo_Ensamblador.release();
+
+
+                } 
+                catch (InterruptedException ex) 
+                {
+                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
+            }
+            else if(tipo==1)
             {
-                Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+                try 
+                {
 
+                    //Comprueba espacio en el almacen:
+                    Semaforo_Productor.acquire();
+                    
+                    long start = System.currentTimeMillis();
+                    sleep(1000*tiempo_produccion);
+                    long stop = System.currentTimeMillis();
+                    //Entra en el almacen:                    
+                    Semaforo_Excluyente.acquire();
+                    producirParabrisa(start, stop);
+                    //Se sale del almacen:                          
+                    Semaforo_Excluyente.release();
+                    //Listo para consumir                    
+                    Semaforo_Ensamblador.release();
+
+                } 
+                catch (InterruptedException ex) 
+                {
+                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+
+                }                
+            }
+            else
+            {
+                try 
+                {
+
+                    //Comprueba espacio en el almacen:
+                    Semaforo_Productor.acquire();
+                    
+                    long start = System.currentTimeMillis();
+                    sleep(1000*tiempo_produccion);
+                    long stop = System.currentTimeMillis();
+                    
+                    //Entra en el almacen:                    
+                    Semaforo_Excluyente.acquire();
+                    producirRueda(start, stop);
+                    //Se sale del almacen:                          
+                    Semaforo_Excluyente.release();
+                    //Listo para consumir                    
+                    Semaforo_Ensamblador.release();
+
+                } 
+                catch (InterruptedException ex) 
+                {
+                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+
+                }                
             }
             
         }    
     }
+    
+    public void producirMotor(long start, long stop)
+    {
+        System.out.println("+Productor de Motor: Produce un motor de auto+");
+        //Deja lo producido en el almacen:
+        almacen.setCant_motor(apuntador, 1);
+        apuntador = (apuntador + 1)%almacen.getTam_motor();
+        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
+        label.setText(Integer.toString(almacen.Contar_Motor()));   
+    }
      
-    public void producir(int tipo, long start, long stop)
+    public void producirParabrisa(long start, long stop)
+    {
+        System.out.println("+ Productor de parabrisa: Produce un parabrisa de autos+");
+        almacen.setCant_parabrisa(apuntador, 1);
+        apuntador = (apuntador + 1)%almacen.getTam_parabrisa();
+        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
+        label.setText(Integer.toString(almacen.Contar_Parabrisa()));  
+    }
+    
+    public void producirRueda(long start, long stop)
+    {
+        System.out.println("+Productor de Rueda: Produce una rueda de auto+");
+        almacen.setCant_rueda(apuntador, 1);
+        apuntador = (apuntador + 1)%almacen.getTam_rueda();
+        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
+        label.setText(Integer.toString(almacen.Contar_Rueda()));    
+    }    
+    /*public void producir(int tipo, long start, long stop)
     {
         if(tipo==0)
         {
@@ -161,7 +246,7 @@ public class Productor extends Thread
             System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
             label.setText(Integer.toString(almacen.Contar_Rueda()));             
         }
-    }
+    }*/
        
 
 }
