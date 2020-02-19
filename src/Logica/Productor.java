@@ -218,35 +218,7 @@ public class Productor extends Thread
         apuntador = (apuntador + 1)%almacen.getTam_rueda();
         System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
         label.setText(Integer.toString(almacen.Contar_Rueda()));    
-    }    
-    /*public void producir(int tipo, long start, long stop)
-    {
-        if(tipo==0)
-        {
-            System.out.println("+Productor de Motor: Produce un motor de auto+");
-            //Deja lo producido en el almacen:
-            almacen.setCant_motor(apuntador, 1);
-            apuntador = (apuntador + 1)%almacen.getTam_motor();
-            System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
-            label.setText(Integer.toString(almacen.Contar_Motor()));
-        }
-        else if(tipo==1)
-        {
-            System.out.println("+ Productor de parabrisa: Produce un parabrisa de autos+");
-            almacen.setCant_parabrisa(apuntador, 1);
-            apuntador = (apuntador + 1)%almacen.getTam_parabrisa();
-            System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
-            label.setText(Integer.toString(almacen.Contar_Parabrisa()));               
-        }
-        else
-        {
-            System.out.println("+Productor de Rueda: Produce una rueda de auto+");
-            almacen.setCant_rueda(apuntador, 1);
-            apuntador = (apuntador + 1)%almacen.getTam_rueda();
-            System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
-            label.setText(Integer.toString(almacen.Contar_Rueda()));             
-        }
-    }*/
+    } 
        
 
 }

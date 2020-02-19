@@ -50,7 +50,7 @@ public class Fabrica
     private int dia_despacho;           //Cant. de días entre despacho    
     private int cant_motor;            //Almacén de motor
     private int cant_parabrisa;            //Almacén de parabrisas
-    private int cant_rueda;        //Almacén de ruedas    
+    private int cant_rueda;        //Almacén de rueda    
     private int ini_prod_motor;         //Cant. inicial Productor de motor
     private int ini_prod_parabrisa;         //Cant. inicial Productor de parabrisas
     private int ini_prod_rueda;     //Cant. inicial Productor de ruedas
@@ -59,6 +59,7 @@ public class Fabrica
     private int max_prod_rueda;     //Cant. máxima Productor de ruedas
     private int ini_ensambladores;       //Cant. inicial de ensambladores
     private int max_ensambladores;       //Cant. máxima de ensambladores
+    private int motorCont, parCont, ruCont;
     
     //Constructor que inicializa la fábrica:
     public Fabrica(JLabel nroDiasDespacho, JLabel cantidadMotores, JLabel cantidadParabrisas, JLabel cantidadRuedas, JLabel cantidadProdMot, JLabel cantidadProdPar, JLabel cantidadProdRu, JLabel cantidadEnsambladores, JLabel cantidadAutos, JLabel estadoGerente, JLabel estadoCrono, JLabel nroDias) throws IOException
@@ -177,7 +178,7 @@ public class Fabrica
     {
         if (ini_ensambladores!=max_ensambladores) 
         {
-           Ensamblador Ensam = new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos);
+           Ensamblador Ensam = new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont);
            Ensambladores.add(Ensam);
            ini_ensambladores++;
            cantidadEnsambladores.setText(Integer.toString(ini_ensambladores));  
@@ -294,7 +295,7 @@ public class Fabrica
        
       while (aux4!=0)
       {
-        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos));
+        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont));
         aux4--;
       }
     }
