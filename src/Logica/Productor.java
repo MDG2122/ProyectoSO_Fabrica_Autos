@@ -106,7 +106,7 @@ public class Productor extends Thread
      {
         while(true)
         {
-            
+          
             if(tipo==0)
             {
                 try 
@@ -126,6 +126,7 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
+                    Semaforo_Productor.release();
 
 
                 } 
@@ -153,6 +154,7 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
+                    Semaforo_Productor.release();
 
                 } 
                 catch (InterruptedException ex) 
@@ -180,6 +182,7 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
+                    Semaforo_Productor.release();
 
                 } 
                 catch (InterruptedException ex) 
@@ -191,33 +194,33 @@ public class Productor extends Thread
             
         }    
     }
-    
+
     public void producirMotor(long start, long stop)
     {
         System.out.println("+Productor de Motor: Produce un motor de auto+");
         //Deja lo producido en el almacen:
         almacen.setCant_motor(apuntador, 1);
         apuntador = (apuntador + 1)%almacen.getTam_motor();
-        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
         label.setText(Integer.toString(almacen.Contar_Motor()));   
+        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
     }
      
     public void producirParabrisa(long start, long stop)
     {
         System.out.println("+ Productor de parabrisa: Produce un parabrisa de autos+");
         almacen.setCant_parabrisa(apuntador, 1);
+        label.setText(Integer.toString(almacen.Contar_Parabrisa()));
         apuntador = (apuntador + 1)%almacen.getTam_parabrisa();
-        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
-        label.setText(Integer.toString(almacen.Contar_Parabrisa()));  
+        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");  
     }
     
     public void producirRueda(long start, long stop)
     {
         System.out.println("+Productor de Rueda: Produce una rueda de auto+");
         almacen.setCant_rueda(apuntador, 1);
+        label.setText(Integer.toString(almacen.Contar_Rueda()));
         apuntador = (apuntador + 1)%almacen.getTam_rueda();
-        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
-        label.setText(Integer.toString(almacen.Contar_Rueda()));    
+        System.out.println(" Tiempo de producción : " + (stop - start)+"\n");    
     } 
        
 

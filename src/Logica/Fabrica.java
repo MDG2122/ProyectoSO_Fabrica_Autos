@@ -277,25 +277,25 @@ public class Fabrica
         
       while (aux1!=0)
       { 
-        Productor_motor.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 3));
+        Productor_motor.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 30));
         aux1--;
       }
       
       while (aux2!=0)
       {
-        Productor_parabrisa.add(new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 2));
+        Productor_parabrisa.add(new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 20));
         aux2--;
       }
       
       while (aux3!=0)
       {
-        Productor_rueda.add(new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, 1));
+        Productor_rueda.add(new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, 10));
         aux3--;
       }
        
       while (aux4!=0)
       {
-        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont));
+        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 20, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont));
         aux4--;
       }
     }

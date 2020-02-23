@@ -51,10 +51,10 @@ public class Ensamblador extends Thread
             {
                 
 
-                for(int i=0; i<almacen.getTam_motor(); i++)
-                {
-                    if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
-                    {
+                //for(int i=0; i<almacen.getTam_motor(); i++)
+                //{
+                    //if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
+                    //{
                         //Entra un ensamblador:
                         Semaforo_ExcluyenteEnsamblador.acquire();
                         //Quiero "n" motores de auto:
@@ -68,14 +68,14 @@ public class Ensamblador extends Thread
                         Semaforo_ProducciónMotor.release(1);
                         //Sale el ensamblador:
                         Semaforo_ExcluyenteEnsamblador.release();
-                    }
-                    apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
-                }
+                    //}
+                    //apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
+                //}
                 
-               for(int i=0; i<almacen.getTam_parabrisa(); i++)
-                {
-                    if(almacen.getValor_Almacen_parabrisa(apuntador_Parabrisa)==1)
-                    {
+               //for(int i=0; i<almacen.getTam_parabrisa(); i++)
+                //{
+                    //if(almacen.getValor_Almacen_parabrisa(apuntador_Parabrisa)==1)
+                    //{
                         Semaforo_ExcluyenteEnsamblador.acquire();
                         Semaforo_ConsumidorParabrisa.acquire(1);
                         Semaforo_ExcluyenteParabrisa.acquire();
@@ -84,15 +84,15 @@ public class Ensamblador extends Thread
                         Semaforo_ProducciónParabrisa.release(1);
                         Semaforo_ExcluyenteEnsamblador.release();
                        
-                    }
-                    apuntador_Parabrisa = (apuntador_Parabrisa+1)%almacen.getTam_parabrisa();
-                }
+                    //}
+                    //apuntador_Parabrisa = (apuntador_Parabrisa+1)%almacen.getTam_parabrisa();
+                //}
 
                 
-               for(int i=0; i<almacen.getTam_rueda(); i++)
-                {
-                    if(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
-                    {
+               //for(int i=0; i<almacen.getTam_rueda(); i++)
+                //{
+                    //if(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
+                    //{
                         Semaforo_ExcluyenteEnsamblador.acquire();
                         Semaforo_ConsumidorRueda.acquire(4);
                         Semaforo_ExcluyenteRueda.acquire();
@@ -100,20 +100,24 @@ public class Ensamblador extends Thread
                         Semaforo_ExcluyenteRueda.release();
                         Semaforo_ProducciónRueda.release(4);
                         Semaforo_ExcluyenteEnsamblador.release();
-                    }
-                    apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
-                }
-               
-                        //Semaforo_ExcluyenteEnsamblador.acquire();
-                     if(this.motorCont==1 && this.parCont==1 && this.ruCont==4)
+                    //}
+                    //apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
+                //}
+
+                        if(this.motorCont>=1 && this.parCont>=1 && this.ruCont>=4)
                         {
+                            this.motorCont=this.motorCont-1;
+                            System.out.println("\n"+this.motorCont+"\n");
+                            this.parCont=this.parCont-1;
+                            System.out.println("\n"+this.parCont+"\n");
+                            this.ruCont=this.ruCont-4;
+                            System.out.println("\n"+this.ruCont+"\n");
                             long start = System.currentTimeMillis();
                             sleep(1000*tiempo_ensamblaje);
                             long stop = System.currentTimeMillis(); 
                             ensamblar(start, stop);
-                            this.motorCont=this.parCont=this.ruCont=0;
                         }
-                        //Semaforo_ExcluyenteEnsamblador.release();
+
                 
                                     
             } 
@@ -137,36 +141,36 @@ public class Ensamblador extends Thread
     public void consumirMotor()
     {
         
-        /*if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
-        {*/
+        if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
+        {
             almacen.setCant_motor(apuntador_Motor, 0);
             Motores.setText(Integer.toString(almacen.Contar_Motor()));
             apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
             System.out.println("#Ensamblador toma un motor de auto#\n");
             this.motorCont = this.motorCont+1;
-        /*}
+        }
         else
         {
             apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
-        }*/
+        }
 
     }
     
     public void consumirParabrisa()
     {
 
-        //if(almacen.getValor_Almacen_parabrisa(apuntador_Parabrisa)==1)
-        //{
+        if(almacen.getValor_Almacen_parabrisa(apuntador_Parabrisa)==1)
+        {
             almacen.setCant_parabrisa(apuntador_Parabrisa, 0);
             Parabrisas.setText(Integer.toString(almacen.Contar_Parabrisa()));
             apuntador_Parabrisa = (apuntador_Parabrisa+1)%almacen.getTam_parabrisa(); 
             System.out.println("#Ensamblador toma un parabrisa de auto#\n");
             this.parCont = this.parCont+1;
-        /*}
+        }
         else
         {
             apuntador_Parabrisa = (apuntador_Parabrisa + 1)%almacen.getTam_parabrisa();
-        }*/
+        }
 
     }
     
@@ -174,18 +178,18 @@ public class Ensamblador extends Thread
     {
         for(int i=0; i<4; i++)
         {
-            /*if(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
-            {*/
+            if(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
+            {
                 almacen.setCant_rueda(apuntador_Rueda, 0);
                 Ruedas.setText(Integer.toString(almacen.Contar_Rueda()));
                 apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
                 System.out.println("#Ensamblador toma una rueda de auto#\n");
                 this.ruCont = this.ruCont+1;
-            /*}
+            }
             else
             {
                 apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
-            }*/   
+            }   
         }
     }
     
