@@ -154,6 +154,7 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
+                    
                     Semaforo_Productor.release();
 
                 } 

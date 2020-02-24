@@ -14,7 +14,7 @@ public class Ensamblador extends Thread
     private int apuntador_Motor = 0, apuntador_Parabrisa = 0, apuntador_Rueda = 0, tiempo_ensamblaje, motorCont=0, parCont=0, ruCont=0;
     private JLabel Motores, Parabrisas, Ruedas, Autos;    
     
-    //Constructor lleno:
+    //Constructor:
     public Ensamblador(Almacen almacen, Semaphore Semaforo_ProducciónMotor, Semaphore Semaforo_ConsumidorMotor, Semaphore Semaforo_ExcluyenteMotor, Semaphore Semaforo_ProducciónParabrisa, Semaphore Semaforo_ConsumidorParabrisa, Semaphore Semaforo_ExcluyenteParabrisa, Semaphore Semaforo_ProducciónRueda, Semaphore Semaforo_ConsumidorRueda, Semaphore Semaforo_ExcluyenteRueda, Semaphore Semaforo_ExcluyenteEnsamblador, int tiempo_ensamblaje, 
             JLabel Motores, JLabel Parabrisas, JLabel Ruedas, JLabel Autos, int motorCont, int parCont, int ruCont) 
     {
@@ -42,84 +42,59 @@ public class Ensamblador extends Thread
     
     @Override
     public void run()
-    {
-        
+    {       
         while (true)
         {
-
             try 
             {
-                
+                //Entra un ensamblador:
+                Semaforo_ExcluyenteEnsamblador.acquire();
+                //Quiero "n" motores de auto:
+                Semaforo_ConsumidorMotor.acquire(1);
+                //Entra en el almacen:
+                Semaforo_ExcluyenteMotor.acquire();
+                consumirMotor();
+                //System.out.println("\n"+this.motorCont+"\n");
+                //Sale del almacen:
+                Semaforo_ExcluyenteMotor.release();
+                //Ya otro ensamblador puede agarrar motores:
+                Semaforo_ProducciónMotor.release(1);
+                //Sale el ensamblador:
+                Semaforo_ExcluyenteEnsamblador.release();
 
-                //for(int i=0; i<almacen.getTam_motor(); i++)
-                //{
-                    //if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
-                    //{
-                        //Entra un ensamblador:
-                        Semaforo_ExcluyenteEnsamblador.acquire();
-                        //Quiero "n" motores de auto:
-                        Semaforo_ConsumidorMotor.acquire(1);
-                        //Entra en el almacen:
-                        Semaforo_ExcluyenteMotor.acquire();
-                        consumirMotor();
-                        //Sale del almacen:
-                        Semaforo_ExcluyenteMotor.release();
-                        //Ya otro ensamblador puede agarrar motores:
-                        Semaforo_ProducciónMotor.release(1);
-                        //Sale el ensamblador:
-                        Semaforo_ExcluyenteEnsamblador.release();
-                    //}
-                    //apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
-                //}
-                
-               //for(int i=0; i<almacen.getTam_parabrisa(); i++)
-                //{
-                    //if(almacen.getValor_Almacen_parabrisa(apuntador_Parabrisa)==1)
-                    //{
-                        Semaforo_ExcluyenteEnsamblador.acquire();
-                        Semaforo_ConsumidorParabrisa.acquire(1);
-                        Semaforo_ExcluyenteParabrisa.acquire();
-                        consumirParabrisa();
-                        Semaforo_ExcluyenteParabrisa.release();
-                        Semaforo_ProducciónParabrisa.release(1);
-                        Semaforo_ExcluyenteEnsamblador.release();
-                       
-                    //}
-                    //apuntador_Parabrisa = (apuntador_Parabrisa+1)%almacen.getTam_parabrisa();
-                //}
+                Semaforo_ExcluyenteEnsamblador.acquire();
+                Semaforo_ConsumidorParabrisa.acquire(1);
+                Semaforo_ExcluyenteParabrisa.acquire();
+                consumirParabrisa();
+                //System.out.println("\n"+this.parCont+"\n");
+                Semaforo_ExcluyenteParabrisa.release();
+                Semaforo_ProducciónParabrisa.release(1);
+                Semaforo_ExcluyenteEnsamblador.release();
 
-                
-               //for(int i=0; i<almacen.getTam_rueda(); i++)
-                //{
-                    //if(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
-                    //{
-                        Semaforo_ExcluyenteEnsamblador.acquire();
-                        Semaforo_ConsumidorRueda.acquire(4);
-                        Semaforo_ExcluyenteRueda.acquire();
-                        consumirRuedas();
-                        Semaforo_ExcluyenteRueda.release();
-                        Semaforo_ProducciónRueda.release(4);
-                        Semaforo_ExcluyenteEnsamblador.release();
-                    //}
-                    //apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
-                //}
+                Semaforo_ExcluyenteEnsamblador.acquire();
+                Semaforo_ConsumidorRueda.acquire(4);
+                Semaforo_ExcluyenteRueda.acquire();
+                consumirRuedas();
+                //System.out.println("\n"+this.ruCont+"\n");
+                Semaforo_ExcluyenteRueda.release();
+                Semaforo_ProducciónRueda.release(4);
+                Semaforo_ExcluyenteEnsamblador.release();
 
-                        if(this.motorCont>=1 && this.parCont>=1 && this.ruCont>=4)
-                        {
-                            this.motorCont=this.motorCont-1;
-                            System.out.println("\n"+this.motorCont+"\n");
-                            this.parCont=this.parCont-1;
-                            System.out.println("\n"+this.parCont+"\n");
-                            this.ruCont=this.ruCont-4;
-                            System.out.println("\n"+this.ruCont+"\n");
-                            long start = System.currentTimeMillis();
-                            sleep(1000*tiempo_ensamblaje);
-                            long stop = System.currentTimeMillis(); 
-                            ensamblar(start, stop);
-                        }
-
-                
-                                    
+                //Ensambla el auto solo si se tienen los materiales requeridos:
+                if(this.motorCont>=1 && this.parCont>=1 && this.ruCont>=4)
+                {
+                    this.motorCont=this.motorCont-1;
+                    //System.out.println("\n"+this.motorCont+"\n");
+                    this.parCont=this.parCont-1;
+                    //System.out.println("\n"+this.parCont+"\n");
+                    this.ruCont=this.ruCont-4;
+                    //System.out.println("\n"+this.ruCont+"\n");
+                    long start = System.currentTimeMillis();
+                    sleep(1000*tiempo_ensamblaje);
+                    long stop = System.currentTimeMillis(); 
+                    ensamblar(start, stop);
+                }
+                   
             } 
             catch (InterruptedException ex) 
             {
@@ -129,7 +104,7 @@ public class Ensamblador extends Thread
         }
     }
     
-    
+    //Incrementa el contador de autos producidos
     public void ensamblar(long start, long stop)
     {
         almacen.incrementar_autos();
@@ -140,7 +115,7 @@ public class Ensamblador extends Thread
     
     public void consumirMotor()
     {
-        
+        //Si hay un motor en el espacio indicado por el apuntador se toma un motor y se actualiza la cantidad de motores
         if(almacen.getValor_Almacen_motor(apuntador_Motor)==1)
         {
             almacen.setCant_motor(apuntador_Motor, 0);
@@ -149,6 +124,7 @@ public class Ensamblador extends Thread
             System.out.println("#Ensamblador toma un motor de auto#\n");
             this.motorCont = this.motorCont+1;
         }
+        //Si no, que pase al siguiente apuntador del almacén
         else
         {
             apuntador_Motor = (apuntador_Motor+1)%almacen.getTam_motor();
