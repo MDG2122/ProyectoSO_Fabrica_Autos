@@ -147,7 +147,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
 
         estatusCronometrador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estatusCronometrador.setForeground(new java.awt.Color(255, 255, 255));
-        estatusCronometrador.setText("Estatus Cronometrador:");
+        estatusCronometrador.setText("Estatus Jefe:");
         jPanel1.add(estatusCronometrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 390, -1, -1));
 
         jPanel2.setMaximumSize(new java.awt.Dimension(100, 100));

@@ -68,18 +68,10 @@ public class Gerente extends Thread
             
             try 
             {
-                tiempo_Duerme=(this.random.nextInt(18));
+                tiempo_Duerme=(this.random.nextInt(12)+6);
 
-                if(tiempo_Duerme<6)
-                {
-                    sleep(((tiempo_Dia*1000)*6)/24);
-                    estadoGerente.setText("Dormido");
-                }
-                else if(tiempo_Duerme>=6)
-                {
-                    sleep(((tiempo_Dia*1000)*tiempo_Duerme)/24);
-                    estadoGerente.setText("Dormido");                        
-                }
+                sleep(((tiempo_Dia*1000)*tiempo_Duerme)/24);
+                estadoGerente.setText("Dormido");
 
                 
                 if(cont_dia.getCont_dia_despacho()==0)
