@@ -32,12 +32,14 @@ public class Jefe extends Thread
         {
             try
             {
+                //Define las horas de sueño del Jefe:
                 estadoCrono.setText("Durmiendo");
                 sleep((long) (((tiempo*1000)*22.5)/24));
                 
                 SE_Calendar.acquire();
                 estadoCrono.setText("Escribiendo");
                 
+                //Si se alcanza el día del despacho, reestablece el cronómetro, sino escribe y aumenta el cronómetro:
                 if (cont_dia.getCont_dia_despacho()== 0) 
                 {
                     cont_dia.setCont_dia_despacho(cont_dia.getDia_original());

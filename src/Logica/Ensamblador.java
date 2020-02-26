@@ -53,8 +53,8 @@ public class Ensamblador extends Thread
                 Semaforo_ConsumidorMotor.acquire(1);
                 //Entra en el almacen:
                 Semaforo_ExcluyenteMotor.acquire();
+                sleep(500); //Tiempo de retardo al consumir, (des)activar si fuera necesario (para pruebas y verificar consumo)
                 consumirMotor();
-                //System.out.println("\n"+this.motorCont+"\n");
                 //Sale del almacen:
                 Semaforo_ExcluyenteMotor.release();
                 //Ya otro ensamblador puede agarrar motores:
@@ -65,8 +65,8 @@ public class Ensamblador extends Thread
                 Semaforo_ExcluyenteEnsamblador.acquire();
                 Semaforo_ConsumidorParabrisa.acquire(1);
                 Semaforo_ExcluyenteParabrisa.acquire();
+                sleep(500);
                 consumirParabrisa();
-                //System.out.println("\n"+this.parCont+"\n");
                 Semaforo_ExcluyenteParabrisa.release();
                 Semaforo_ProducciónParabrisa.release(1);
                 Semaforo_ExcluyenteEnsamblador.release();
@@ -74,8 +74,8 @@ public class Ensamblador extends Thread
                 Semaforo_ExcluyenteEnsamblador.acquire();
                 Semaforo_ConsumidorRueda.acquire(4);
                 Semaforo_ExcluyenteRueda.acquire();
+                sleep(500);
                 consumirRuedas();
-                //System.out.println("\n"+this.ruCont+"\n");
                 Semaforo_ExcluyenteRueda.release();
                 Semaforo_ProducciónRueda.release(4);
                 Semaforo_ExcluyenteEnsamblador.release();
@@ -83,12 +83,11 @@ public class Ensamblador extends Thread
                 //Ensambla el auto solo si se tienen los materiales requeridos:
                 if(this.motorCont>=1 && this.parCont>=1 && this.ruCont>=4)
                 {
+                    //Decrementa los contadores de partes:
                     this.motorCont=this.motorCont-1;
-                    //System.out.println("\n"+this.motorCont+"\n");
                     this.parCont=this.parCont-1;
-                    //System.out.println("\n"+this.parCont+"\n");
                     this.ruCont=this.ruCont-4;
-                    //System.out.println("\n"+this.ruCont+"\n");
+                    
                     long start = System.currentTimeMillis();
                     sleep(1000*tiempo_ensamblaje);
                     long stop = System.currentTimeMillis(); 

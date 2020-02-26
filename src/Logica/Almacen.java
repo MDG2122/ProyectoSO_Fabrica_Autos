@@ -109,6 +109,7 @@ public class Almacen
         for(int i=0; i<tam_motor; i++)
         {
             motor_aux = getValor_Almacen_motor(i);
+            //Agrega motores si encuentra uno en la posición actual del almacén
             if (motor_aux == 1)
             {
                cant_motor++;  

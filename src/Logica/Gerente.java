@@ -68,19 +68,23 @@ public class Gerente extends Thread
             
             try 
             {
+                //Define las 6-18 horas de sueño del gerente:
                 tiempo_Duerme=(this.random.nextInt(12)+6);
 
                 sleep(((tiempo_Dia*1000)*tiempo_Duerme)/24);
                 estadoGerente.setText("Dormido");
 
-                
+                //Si se alcanza el día de despacho, Gerente despacha los autos, sino verifica:
                 if(cont_dia.getCont_dia_despacho()==0)
                 {
+                    int aux;
                     SE_Autos.acquire();
+                    aux=almacen.getCant_autos();
                     almacen.setCant_autos(0);
+                    System.out.println("\n ¡Día del despacho! Se han producido "+aux+" autos.\n");
                     cantAutos.setText(Integer.toString(almacen.getCant_autos()));
                     sleep (tiempo_Dia*1000);
-                    estadoGerente.setText("Despachando");
+                    estadoGerente.setText("Despachando"); 
                 }                          
                 else
                 {

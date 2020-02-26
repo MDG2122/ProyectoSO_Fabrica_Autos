@@ -135,7 +135,7 @@ public class Fabrica
     {
         if (ini_prod_motor!=max_prod_motor) 
         {
-           Productor Prod_Motor = new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 3);
+           Productor Prod_Motor = new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, (3*tiempo_dia));
            Productor_motor.add(Prod_Motor);
            ini_prod_motor++;
            cantidadProdMot.setText(Integer.toString(ini_prod_motor));  
@@ -148,7 +148,7 @@ public class Fabrica
     {
         if (ini_prod_parabrisa!=max_prod_parabrisa) 
         {
-           Productor Prod_Parabrisa = new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 2);
+           Productor Prod_Parabrisa = new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, (2*tiempo_dia));
            Productor_parabrisa.add(Prod_Parabrisa);
            ini_prod_parabrisa++;
            cantidadProdPar.setText(Integer.toString(ini_prod_parabrisa));  
@@ -162,7 +162,7 @@ public class Fabrica
     {
         if (ini_prod_rueda!=max_prod_rueda) 
         {
-           Productor Prod_Rueda = new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, 1);
+           Productor Prod_Rueda = new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, (1*tiempo_dia));
            Productor_rueda.add(Prod_Rueda);
            ini_prod_rueda++;
            cantidadProdRu.setText(Integer.toString(ini_prod_rueda));  
@@ -176,7 +176,7 @@ public class Fabrica
     {
         if (ini_ensambladores!=max_ensambladores) 
         {
-           Ensamblador Ensam = new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont);
+           Ensamblador Ensam = new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, (2*tiempo_dia), cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont);
            Ensambladores.add(Ensam);
            ini_ensambladores++;
            cantidadEnsambladores.setText(Integer.toString(ini_ensambladores));  
@@ -193,7 +193,7 @@ public class Fabrica
             Productor_motor.remove(Productor_motor.size()-1);
             ini_prod_motor--;
             cantidadProdMot.setText(Integer.toString(ini_prod_motor));
-            System.out.println("#Productor de Motor despedido#");
+            System.out.println("#Productor de Motor despedido#\n");
         }
           
     }         
@@ -206,7 +206,7 @@ public class Fabrica
             Productor_parabrisa.remove(Productor_parabrisa.size()-1);
             ini_prod_parabrisa--;
             cantidadProdPar.setText(Integer.toString(ini_prod_parabrisa));
-            System.out.println("#Productor de Parabrisas despedido#");
+            System.out.println("#Productor de Parabrisas despedido#\n");
         }
     }
     
@@ -218,7 +218,7 @@ public class Fabrica
             Productor_rueda.remove(Productor_rueda.size()-1);
             ini_prod_rueda--;
             cantidadProdRu.setText(Integer.toString(ini_prod_rueda));
-            System.out.println("#Productor de Ruedas despedido#");
+            System.out.println("#Productor de Ruedas despedido#\n");
         }
     }
     
@@ -230,7 +230,7 @@ public class Fabrica
                 Ensambladores.remove(Ensambladores.size()-1);
                 ini_ensambladores--;
                 cantidadEnsambladores.setText(Integer.toString(ini_ensambladores));
-                System.out.println("#Ensamblasor despedido#");
+                System.out.println("#Ensamblasor despedido#\n");
         }
     }
      
@@ -275,30 +275,29 @@ public class Fabrica
         
       while (aux1!=0)
       { 
-        Productor_motor.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, 3));
+        Productor_motor.add(new Productor(almacen, SE_ProductorMotor, S_ProductorMotor, S_EnsambladorMotor, 0, cantidadMotores, (3*tiempo_dia)));
         aux1--;
       }
       
       while (aux2!=0)
       {
-        Productor_parabrisa.add(new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, 2));
+        Productor_parabrisa.add(new Productor(almacen, SE_ProductorParabrisa, S_ProductorParabrisa, S_EnsambladorParabrisa, 1, cantidadParabrisas, (2*tiempo_dia)));
         aux2--;
       }
       
       while (aux3!=0)
       {
-        Productor_rueda.add(new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, 1));
+        Productor_rueda.add(new Productor(almacen, SE_ProductorRueda, S_ProductorRueda, S_EnsambladorRueda, 2, cantidadRuedas, (1*tiempo_dia)));
         aux3--;
       }
        
       while (aux4!=0)
       {
-        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, 2, cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont));
+        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, (2*tiempo_dia), cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont));
         aux4--;
       }
     }
 
-    
     //Método que asigna asigna los valores por archivo de texto:
     public void LeerDatos()throws FileNotFoundException, IOException
     {

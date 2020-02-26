@@ -111,7 +111,6 @@ public class Productor extends Thread
             {
                 try 
                 {
-
                     //Comprueba espacio en el almacen:
                     Semaforo_Productor.acquire();
                     
@@ -126,9 +125,6 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
-                    Semaforo_Productor.release();
-
-
                 } 
                 catch (InterruptedException ex) 
                 {
@@ -140,7 +136,6 @@ public class Productor extends Thread
             {
                 try 
                 {
-
                     //Comprueba espacio en el almacen:
                     Semaforo_Productor.acquire();
                     
@@ -154,9 +149,6 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
-                    
-                    Semaforo_Productor.release();
-
                 } 
                 catch (InterruptedException ex) 
                 {
@@ -168,7 +160,6 @@ public class Productor extends Thread
             {
                 try 
                 {
-
                     //Comprueba espacio en el almacen:
                     Semaforo_Productor.acquire();
                     
@@ -183,8 +174,6 @@ public class Productor extends Thread
                     Semaforo_Excluyente.release();
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
-                    Semaforo_Productor.release();
-
                 } 
                 catch (InterruptedException ex) 
                 {
@@ -201,6 +190,7 @@ public class Productor extends Thread
         System.out.println("+Productor de Motor: Produce un motor de auto+");
         //Deja lo producido en el almacen:
         almacen.setCant_motor(apuntador, 1);
+        //Se coloca en el siguiente espacio del almacén:
         apuntador = (apuntador + 1)%almacen.getTam_motor();
         label.setText(Integer.toString(almacen.Contar_Motor()));   
         System.out.println(" Tiempo de producción : " + (stop - start)+"\n");
