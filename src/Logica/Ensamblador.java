@@ -53,7 +53,7 @@ public class Ensamblador extends Thread
                 Semaforo_ConsumidorMotor.acquire(1);
                 //Entra en el almacen:
                 Semaforo_ExcluyenteMotor.acquire();
-                sleep(500); //Tiempo de retardo al consumir, (des)activar si fuera necesario (para pruebas y verificar consumo)
+                //sleep((1000*tiempo_dia)/2); //Tiempo de retardo al consumir, (des)activar si fuera necesario (para pruebas y verificar consumo, se debe reemplazar "tiempo_dia" por lo que dura el día en segundos)
                 consumirMotor();
                 //Sale del almacen:
                 Semaforo_ExcluyenteMotor.release();
@@ -65,7 +65,7 @@ public class Ensamblador extends Thread
                 Semaforo_ExcluyenteEnsamblador.acquire();
                 Semaforo_ConsumidorParabrisa.acquire(1);
                 Semaforo_ExcluyenteParabrisa.acquire();
-                sleep(500);
+                //sleep((1000*tiempo_dia)/2);
                 consumirParabrisa();
                 Semaforo_ExcluyenteParabrisa.release();
                 Semaforo_ProducciónParabrisa.release(1);
@@ -74,7 +74,7 @@ public class Ensamblador extends Thread
                 Semaforo_ExcluyenteEnsamblador.acquire();
                 Semaforo_ConsumidorRueda.acquire(4);
                 Semaforo_ExcluyenteRueda.acquire();
-                sleep(500);
+                //sleep((1000*tiempo_dia)/2);
                 consumirRuedas();
                 Semaforo_ExcluyenteRueda.release();
                 Semaforo_ProducciónRueda.release(4);
