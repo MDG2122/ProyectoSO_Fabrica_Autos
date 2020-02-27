@@ -47,54 +47,57 @@ public class Ensamblador extends Thread
         {
             try 
             {
-                //Entra un ensamblador:
-                Semaforo_ExcluyenteEnsamblador.acquire();
-                //Quiero "n" motores de auto:
-                Semaforo_ConsumidorMotor.acquire(1);
-                //Entra en el almacen:
-                Semaforo_ExcluyenteMotor.acquire();
-                sleep(1000/16); //Tiempo de retardo al consumir, (des)activar si fuera necesario (para pruebas y verificar consumo, porque en ocasiones toma recursos muy rápido y no se nota)
-                consumirMotor();
-                Motores.setText(Integer.toString(almacen.Contar_Motor()));
-                //Sale del almacen:
-                Semaforo_ExcluyenteMotor.release();
-                //Ya otro ensamblador puede agarrar motores:
-                Semaforo_ProducciónMotor.release(1);
-                //Sale el ensamblador:
-                Semaforo_ExcluyenteEnsamblador.release();
-
-                Semaforo_ExcluyenteEnsamblador.acquire();
-                Semaforo_ConsumidorParabrisa.acquire(1);
-                Semaforo_ExcluyenteParabrisa.acquire();
-                sleep(1000/16);
-                consumirParabrisa();
-                Semaforo_ExcluyenteParabrisa.release();
-                Semaforo_ProducciónParabrisa.release(1);
-                Semaforo_ExcluyenteEnsamblador.release();
-
-                Semaforo_ExcluyenteEnsamblador.acquire();
-                Semaforo_ConsumidorRueda.acquire(4);
-                Semaforo_ExcluyenteRueda.acquire();
-                sleep(1000/16);
-                consumirRuedas();
-                Semaforo_ExcluyenteRueda.release();
-                Semaforo_ProducciónRueda.release(4);
-                Semaforo_ExcluyenteEnsamblador.release();
-
+                
                 //Ensambla el auto solo si se tienen los materiales requeridos:
                 if(this.motorCont>=1 && this.parCont>=1 && this.ruCont>=4)
                 {
-                    //Decrementa los contadores de partes:
-                    this.motorCont=this.motorCont-1;
-                    this.parCont=this.parCont-1;
-                    this.ruCont=this.ruCont-4;
-                    
-                    long start = System.currentTimeMillis();
-                    sleep(1000*tiempo_ensamblaje);
-                    long stop = System.currentTimeMillis(); 
-                    ensamblar(start, stop);
+                    Semaforo_ExcluyenteEnsamblador.acquire();
+                        //Decrementa los contadores de partes:
+                        this.motorCont=this.motorCont-1;
+                        this.parCont=this.parCont-1;
+                        this.ruCont=this.ruCont-4;
+                        long start = System.currentTimeMillis();
+                        sleep(1000*tiempo_ensamblaje);
+                        long stop = System.currentTimeMillis(); 
+                        ensamblar(start, stop);
+                    Semaforo_ExcluyenteEnsamblador.release();
                 }
-                   
+                else
+                {
+                    //Entra un ensamblador:
+                    Semaforo_ExcluyenteEnsamblador.acquire();
+                    //Quiero "n" motores de auto:
+                    Semaforo_ConsumidorMotor.acquire(1);
+                    //Entra en el almacen:
+                    Semaforo_ExcluyenteMotor.acquire();
+                    sleep(1000/16); //Tiempo de retardo al consumir, (des)activar si fuera necesario (para pruebas y verificar consumo, porque en ocasiones toma recursos muy rápido y no se nota)
+                    consumirMotor();
+                    Motores.setText(Integer.toString(almacen.Contar_Motor()));
+                    //Sale del almacen:
+                    Semaforo_ExcluyenteMotor.release();
+                    //Ya otro ensamblador puede agarrar motores:
+                    Semaforo_ProducciónMotor.release(1);
+                    //Sale el ensamblador:
+                    Semaforo_ExcluyenteEnsamblador.release();   
+
+                    Semaforo_ExcluyenteEnsamblador.acquire();
+                    Semaforo_ConsumidorParabrisa.acquire(1);
+                    Semaforo_ExcluyenteParabrisa.acquire();
+                    sleep(1000/16);
+                    consumirParabrisa();
+                    Semaforo_ExcluyenteParabrisa.release();
+                    Semaforo_ProducciónParabrisa.release(1);
+                    Semaforo_ExcluyenteEnsamblador.release();   
+
+                    Semaforo_ExcluyenteEnsamblador.acquire();
+                    Semaforo_ConsumidorRueda.acquire(4);
+                    Semaforo_ExcluyenteRueda.acquire();
+                    sleep(1000/16);
+                    consumirRuedas();
+                    Semaforo_ExcluyenteRueda.release();
+                    Semaforo_ProducciónRueda.release(4);
+                    Semaforo_ExcluyenteEnsamblador.release();   
+                } 
             } 
             catch (InterruptedException ex) 
             {
