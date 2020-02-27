@@ -176,7 +176,7 @@ public class Fabrica
     {
         if (ini_ensambladores!=max_ensambladores) 
         {
-           Ensamblador Ensam = new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, (2*tiempo_dia), cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont);
+           Ensamblador Ensam = new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, (2*tiempo_dia), cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont, Ensambladores.size());
            Ensambladores.add(Ensam);
            ini_ensambladores++;
            cantidadEnsambladores.setText(Integer.toString(ini_ensambladores));  
@@ -230,7 +230,7 @@ public class Fabrica
                 Ensambladores.remove(Ensambladores.size()-1);
                 ini_ensambladores--;
                 cantidadEnsambladores.setText(Integer.toString(ini_ensambladores));
-                System.out.println("#Ensamblasor despedido#\n");
+                System.out.println("#Ensamblador "+(Ensambladores.size())+" despedido#\n");
         }
     }
      
@@ -293,7 +293,7 @@ public class Fabrica
        
       while (aux4!=0)
       {
-        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, (2*tiempo_dia), cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont));
+        Ensambladores.add(new Ensamblador(almacen, S_ProductorMotor, S_EnsambladorMotor, SE_ProductorMotor, S_ProductorParabrisa, S_EnsambladorParabrisa, SE_ProductorParabrisa, S_ProductorRueda, S_EnsambladorRueda, SE_ProductorRueda, SE_Ensamblador, (2*tiempo_dia), cantidadMotores, cantidadParabrisas, cantidadRuedas, cantidadAutos, motorCont, parCont, ruCont, Ensambladores.size()));
         aux4--;
       }
     }
