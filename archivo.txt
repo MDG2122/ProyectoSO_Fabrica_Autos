@@ -11,3 +11,20 @@
 4
 3
 5
+
+
+
+//Orden de los elementos en el archivo de texto:
+1. Tiempo, en segundos, que dura un día en el programa.
+2. Cantidad de días entre despachos.
+3. Capacidad máxima almacén de motores.
+4. Capacidad máxima almacén de parabrisas.
+5. Capacidad máxima almacén de ruedas.
+6. Cantidad inicial de productor de motores.
+7. Cantidad inicial de productor de parabrisas.
+8. Cantidad inicial de productor de ruedas.
+9. Cantidad máxima de productores de motores.
+10. Cantidad máxima de productores de parabrisas.
+11. Cantidad máxima de productores de ruedas.
+12. Cantidad inicial de ensambladores.
+13. Cantidad máxima de ensambladores

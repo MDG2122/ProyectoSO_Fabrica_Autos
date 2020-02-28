@@ -21,13 +21,13 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         this.setLocationRelativeTo(null);
         fabrica_autos= new Fabrica (this.nroDiasDespacho, this.cantidadMotores, this.cantidadParabrisas, this.cantidadRuedas, this.cantidadProdMot, this.cantidadProdPar, this.cantidadProdRu, this.cantidadEnsambladores, this.cantidadAutos, this.estadoGerente, this.estadoCrono, this.nroDias);
         fabrica_autos.Inicializar_ArrayLists();       flag=false;
-        ImageIcon imagenMot = new ImageIcon( "src/Imagenes/motor.jpg");
+        ImageIcon imagenMot = new ImageIcon( "src/Imagenes/motor2.jpg");
         Icon iconoMot = new ImageIcon(imagenMot.getImage().getScaledInstance(motorlabel.getWidth(),motorlabel.getHeight(),Image.SCALE_DEFAULT));
-        motorlabel.setIcon(iconoMot); ImageIcon imagenPar = new ImageIcon( "src/Imagenes/parabrisa.jpg");
+        motorlabel.setIcon(iconoMot); ImageIcon imagenPar = new ImageIcon( "src/Imagenes/parabrisa2.jpg");
         Icon iconoPar = new ImageIcon(imagenPar.getImage().getScaledInstance(parabrisalabel.getWidth(),parabrisalabel.getHeight(),Image.SCALE_DEFAULT));
-        parabrisalabel.setIcon(iconoPar); ImageIcon imagenRu = new ImageIcon( "src/Imagenes/rueda.jpg");
+        parabrisalabel.setIcon(iconoPar); ImageIcon imagenRu = new ImageIcon( "src/Imagenes/rueda2.jpg");
         Icon iconoRu = new ImageIcon(imagenRu.getImage().getScaledInstance(ruedalabel.getWidth(),ruedalabel.getHeight(),Image.SCALE_DEFAULT));
-        ruedalabel.setIcon(iconoRu); ImageIcon imagenAuto = new ImageIcon( "src/Imagenes/auto.jpg");
+        ruedalabel.setIcon(iconoRu); ImageIcon imagenAuto = new ImageIcon( "src/Imagenes/auto.png");
         Icon iconoAuto = new ImageIcon(imagenAuto.getImage().getScaledInstance(autolabel.getWidth(),autolabel.getHeight(),Image.SCALE_DEFAULT));
         autolabel.setIcon(iconoAuto);
     }
@@ -123,7 +123,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         cantAutosProducidos.setFont(new java.awt.Font("Impact", 0, 20)); // NOI18N
         cantAutosProducidos.setForeground(new java.awt.Color(255, 255, 255));
         cantAutosProducidos.setText("Nro. Autos Producidos");
-        jPanel1.add(cantAutosProducidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 104, -1, -1));
+        jPanel1.add(cantAutosProducidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 100, -1, -1));
 
         diasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         diasDespacho.setForeground(new java.awt.Color(255, 255, 255));
@@ -237,12 +237,12 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(contratarProdMot)
                         .addGap(18, 18, 18)
                         .addComponent(despedirProdMot)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         motorDatos.addTab("Productor", jPanel3);
 
-        jPanel1.add(motorDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 170));
+        jPanel1.add(motorDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 210, 200));
 
         jLabel4.setText("Parabrisas producidos:");
 
@@ -278,7 +278,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(parabrisalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         parabrisaDatos.addTab("Producción", jPanel4);
@@ -333,12 +333,12 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(contratarProPar)
                         .addGap(18, 18, 18)
                         .addComponent(despedirProdPar)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         parabrisaDatos.addTab("Productor", jPanel5);
 
-        jPanel1.add(parabrisaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 141, 210, 170));
+        jPanel1.add(parabrisaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 121, 210, 200));
 
         jLabel8.setText("Ruedas producidas:");
 
@@ -372,7 +372,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ruedalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         ruedasDatos.addTab("Producción", jPanel6);
@@ -427,12 +427,12 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                         .addComponent(contratarProdRu)
                         .addGap(18, 18, 18)
                         .addComponent(despedirProdRu)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         ruedasDatos.addTab("Productor", jPanel7);
 
-        jPanel1.add(ruedasDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 141, 210, 170));
+        jPanel1.add(ruedasDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 121, 210, 200));
 
         ensambladores.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ensambladores.setForeground(new java.awt.Color(255, 255, 255));
@@ -463,7 +463,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         cantidadAutos.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cantidadAutos.setForeground(new java.awt.Color(255, 153, 51));
         cantidadAutos.setText("X");
-        jPanel1.add(cantidadAutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(814, 188, -1, -1));
+        jPanel1.add(cantidadAutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 140, -1, -1));
 
         nroDiasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nroDiasDespacho.setForeground(new java.awt.Color(255, 153, 51));
@@ -486,7 +486,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
                 IniciarActionPerformed(evt);
             }
         });
-        jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 94, -1));
+        jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 90, -1));
 
         diasTranscurridos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         diasTranscurridos.setForeground(new java.awt.Color(255, 255, 255));
@@ -497,21 +497,23 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         nroDias.setForeground(new java.awt.Color(255, 153, 51));
         nroDias.setText("X");
         jPanel1.add(nroDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 334, -1, -1));
-        jPanel1.add(autolabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 190, 120, 100));
+        jPanel1.add(autolabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 210, 150));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 50, 1010, 450));
-
-        salir.setText("salir");
+        salir.setText("Salir");
+        salir.setBorderPainted(false);
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, -1, -1));
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 30, 90, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 50, 1010, 450));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondogrey.jpg"))); // NOI18N
         Fondo.setText("jLabel2");
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, -1));
+        Fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 1000, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -602,7 +604,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -624,6 +626,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         {
             public void run() 
             {
+                
                 try 
                 {
                     new InterfazFabrica1().setVisible(true);

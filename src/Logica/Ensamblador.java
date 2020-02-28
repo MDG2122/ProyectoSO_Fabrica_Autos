@@ -12,11 +12,12 @@ public class Ensamblador extends Thread
     private Almacen almacen;
     private Semaphore Semaforo_ProducciónMotor, Semaforo_ConsumidorMotor, Semaforo_ExcluyenteMotor, Semaforo_ProducciónParabrisa, Semaforo_ConsumidorParabrisa, Semaforo_ExcluyenteParabrisa, Semaforo_ProducciónRueda, Semaforo_ConsumidorRueda, Semaforo_ExcluyenteRueda, Semaforo_ExcluyenteEnsamblador;
     private int apuntador_Motor = 0, apuntador_Parabrisa = 0, apuntador_Rueda = 0, tiempo_ensamblaje, motorCont=0, parCont=0, ruCont=0, ie;
-    private JLabel Motores, Parabrisas, Ruedas, Autos;    
+    private JLabel Motores, Parabrisas, Ruedas, Autos;
+    private boolean estado;
     
     //Constructor:
     public Ensamblador(Almacen almacen, Semaphore Semaforo_ProducciónMotor, Semaphore Semaforo_ConsumidorMotor, Semaphore Semaforo_ExcluyenteMotor, Semaphore Semaforo_ProducciónParabrisa, Semaphore Semaforo_ConsumidorParabrisa, Semaphore Semaforo_ExcluyenteParabrisa, Semaphore Semaforo_ProducciónRueda, Semaphore Semaforo_ConsumidorRueda, Semaphore Semaforo_ExcluyenteRueda, Semaphore Semaforo_ExcluyenteEnsamblador, int tiempo_ensamblaje, 
-            JLabel Motores, JLabel Parabrisas, JLabel Ruedas, JLabel Autos, int motorCont, int parCont, int ruCont, int ie) 
+            JLabel Motores, JLabel Parabrisas, JLabel Ruedas, JLabel Autos, int motorCont, int parCont, int ruCont, int ie, boolean estado) 
     {
         this.almacen = almacen;
         this.Semaforo_ProducciónMotor = Semaforo_ProducciónMotor;
@@ -38,6 +39,7 @@ public class Ensamblador extends Thread
         this.parCont= parCont;
         this.ruCont= ruCont;
         this.ie=ie;
+        this.estado = estado;
         
     }
     
@@ -48,6 +50,11 @@ public class Ensamblador extends Thread
         {
             try 
             {
+
+                while(!this.estado)
+                {
+                   interrupt();
+                }
                 
                 //Ensambla el auto solo si se tienen los materiales requeridos:
                 if(this.motorCont==1 && this.parCont==1 && this.ruCont==4)
@@ -55,11 +62,11 @@ public class Ensamblador extends Thread
                     Semaforo_ExcluyenteEnsamblador.acquire();
                     //Decrementa los contadores de partes:
                     this.motorCont=this.motorCont-1;
-                    System.out.println("\nEnsamblador "+this.ie+" tiene "+this.motorCont+" motores\n");
+                    //System.out.println("\nEnsamblador "+this.ie+" tiene "+this.motorCont+" motores\n");
                     this.parCont=this.parCont-1;
-                    System.out.println("\nEnsamblador "+this.ie+" tiene "+this.parCont+" parabrisas\n");
+                    //System.out.println("\nEnsamblador "+this.ie+" tiene "+this.parCont+" parabrisas\n");
                     this.ruCont=this.ruCont-4;
-                    System.out.println("\nEnsamblador "+this.ie+" tiene "+this.ruCont+" ruedas\n");
+                    //System.out.println("\nEnsamblador "+this.ie+" tiene "+this.ruCont+" ruedas\n");
                     long start = System.currentTimeMillis();
                     sleep(1000*tiempo_ensamblaje);
                     long stop = System.currentTimeMillis(); 
@@ -68,7 +75,7 @@ public class Ensamblador extends Thread
                 }
                 else
                 {
-                    
+                    //Condicional para que no tome más de un motor:
                     if(this.motorCont<1)
                     {
                         //Entra un ensamblador:
@@ -88,6 +95,7 @@ public class Ensamblador extends Thread
                         Semaforo_ExcluyenteEnsamblador.release();   
                     }
                     
+                    //Condicional para que no tome más de un parabrisas:
                     if(this.parCont<1)
                     {
                         Semaforo_ExcluyenteEnsamblador.acquire();
@@ -100,6 +108,7 @@ public class Ensamblador extends Thread
                         Semaforo_ExcluyenteEnsamblador.release();   
                     }
                     
+                    //Condicional para que no tome más de 4 ruedas:
                     if(this.ruCont<4)
                     {
                         Semaforo_ExcluyenteEnsamblador.acquire();
@@ -170,25 +179,30 @@ public class Ensamblador extends Thread
     
     public void consumirRuedas()
     {
-
-            while(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
+        //Recorre el almacen de ruedas mientras en cada posición haya una rueda
+        while(almacen.getValor_Almacen_rueda(apuntador_Rueda)==1)
+        {
+            almacen.setCant_rueda(apuntador_Rueda, 0);
+            Ruedas.setText(Integer.toString(almacen.Contar_Rueda()));
+            apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
+            System.out.println("#Ensamblador "+this.ie+" toma una rueda de auto#\n");
+            this.ruCont = this.ruCont+1;
+            
+            //Si reune las 4 ruedas que salga del ciclo
+            if(this.ruCont==4)
             {
-                almacen.setCant_rueda(apuntador_Rueda, 0);
-                Ruedas.setText(Integer.toString(almacen.Contar_Rueda()));
-                apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();
-                System.out.println("#Ensamblador "+this.ie+" toma una rueda de auto#\n");
-                this.ruCont = this.ruCont+1;
-                
-                if(this.ruCont==4)
-                {
-                    break;
-                }
+                break;
             }
-                apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();  
-
+        }
+        //Pasa al siguiente apuntador:
+        apuntador_Rueda = (apuntador_Rueda+1)%almacen.getTam_rueda();  
     }
     
-        
+    public void estadoChange()
+    {
+        this.estado=false;
+    }
+
 
     
     

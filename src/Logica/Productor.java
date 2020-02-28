@@ -13,10 +13,11 @@ public class Productor extends Thread
     private Semaphore Semaforo_Excluyente, Semaforo_Productor, Semaforo_Ensamblador;
     private int tipo, cont_pieza, apuntador=0; //Tipos: 0->Motor, 1->Parabrisa, 2->Rueda
     private JLabel label;
-    private int tiempo_produccion;
+    private int tiempo_produccion, ie;
+    private boolean estado;
     
     //Constructor:
-    public Productor(Almacen almacen, Semaphore Semaforo_Excluyente, Semaphore Semaforo_Productor, Semaphore Semaforo_Ensamblador, int tipo, JLabel label, int tiempo_produccion) 
+    public Productor(Almacen almacen, Semaphore Semaforo_Excluyente, Semaphore Semaforo_Productor, Semaphore Semaforo_Ensamblador, int tipo, JLabel label, int tiempo_produccion, int ie ,boolean estado) 
     {
         this.almacen = almacen;
         this.Semaforo_Excluyente = Semaforo_Excluyente;
@@ -25,6 +26,8 @@ public class Productor extends Thread
         this.tipo = tipo;
         this.label = label;
         this.tiempo_produccion = tiempo_produccion;
+        this.ie = ie;
+        this.estado = estado;
     }
     
     //Getter y Setter:
@@ -106,7 +109,12 @@ public class Productor extends Thread
      {
         while(true)
         {
-          
+
+            while(!this.estado)
+            {
+               interrupt();
+            }
+
             if(tipo==0)
             {
                 try 
@@ -187,7 +195,7 @@ public class Productor extends Thread
 
     public void producirMotor(long start, long stop)
     {
-        System.out.println("+Productor de Motor: Produce un motor de auto+");
+        System.out.println("+Productor de Motor "+this.ie+": Produce un motor de auto+");
         //Deja lo producido en el almacen:
         almacen.setCant_motor(apuntador, 1);
         //Se coloca en el siguiente espacio del almacén:
@@ -198,7 +206,7 @@ public class Productor extends Thread
      
     public void producirParabrisa(long start, long stop)
     {
-        System.out.println("+ Productor de parabrisa: Produce un parabrisa de autos+");
+        System.out.println("+ Productor de parabrisa "+this.ie+": Produce un parabrisa de autos+");
         almacen.setCant_parabrisa(apuntador, 1);
         label.setText(Integer.toString(almacen.Contar_Parabrisa()));
         apuntador = (apuntador + 1)%almacen.getTam_parabrisa();
@@ -207,12 +215,17 @@ public class Productor extends Thread
     
     public void producirRueda(long start, long stop)
     {
-        System.out.println("+Productor de Rueda: Produce una rueda de auto+");
+        System.out.println("+Productor de Rueda "+this.ie+": Produce una rueda de auto+");
         almacen.setCant_rueda(apuntador, 1);
         label.setText(Integer.toString(almacen.Contar_Rueda()));
         apuntador = (apuntador + 1)%almacen.getTam_rueda();
         System.out.println(" Tiempo de producción : " + (stop - start)+"\n");    
-    } 
+    }
+    
+    public void estadoChange()
+    {
+        this.estado=false;
+    }
        
 
 }
